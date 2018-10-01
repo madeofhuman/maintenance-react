@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
 import Navbar from '../components/common/NavbarComponent';
 import '../assets/css/home.css';
 import wrenchHammer from '../assets/img/wrench-hammer.svg';
@@ -22,11 +20,11 @@ const Homepage = () => (
           </h2>
           <br />
           <p>
-            We want to help you fix the things you love, and make sure the things that matter most to you, do not fall to pieces, so
-            you can actually enjoy using them.
+            We want to help you fix the things you love, and make sure the things that matter most
+            to you, do not fall to pieces, so you can actually enjoy using them.
             <br /><br />
-            We take great pride in our work and our ability to exceed customer expectation. You, the customer,
-            are our greatest resource and we will treat you accordingly.
+            We take great pride in our work and our ability to exceed customer expectation. You,
+            the customer, are our greatest resource and we will treat you accordingly.
           </p>
         </span>
       </div>
