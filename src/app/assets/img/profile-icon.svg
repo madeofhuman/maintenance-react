@@ -1,0 +1,26 @@
+<svg width="166" height="166" viewBox="0 0 166 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Canvas" fill="none">
+<g id="Profile Pic Group">
+<g id="Ellipse">
+<circle cx="83" cy="83" r="83" fill="#C4C4C4" fill-opacity="0.09"/>
+<circle cx="83" cy="83" r="81.5" stroke="#BDBDBD" stroke-width="3"/>
+</g>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="166" height="166">
+<g id="Ellipse_2">
+<circle cx="83" cy="83" r="83" fill="white"/>
+<circle cx="83" cy="83" r="81.5" stroke="white" stroke-width="3"/>
+</g>
+</mask>
+<g mask="url(#mask0)">
+<g id="Ellipse_3" transform="translate(45 24)">
+<circle cx="37.5" cy="37.5" r="37.5" fill="#C4C4C4" fill-opacity="0.09"/>
+<circle cx="37.5" cy="37.5" r="36" stroke="#BDBDBD" stroke-width="3"/>
+</g>
+<g id="Ellipse_4" transform="translate(22 96)">
+<ellipse cx="60.5" cy="45" rx="60.5" ry="45" fill="#C4C4C4" fill-opacity="0.09"/>
+<path d="M 119.5 45C 119.5 56.843 113.05 67.6837 102.385 75.6162C 91.7199 83.5488 76.9163 88.5 60.5 88.5C 44.0837 88.5 29.2801 83.5488 18.6153 75.6162C 7.95041 67.6837 1.5 56.843 1.5 45C 1.5 33.157 7.95041 22.3163 18.6153 14.3838C 29.2801 6.45124 44.0837 1.5 60.5 1.5C 76.9163 1.5 91.7199 6.45124 102.385 14.3838C 113.05 22.3163 119.5 33.157 119.5 45Z" stroke="#BDBDBD" stroke-width="3"/>
+</g>
+</g>
+</g>
+</g>
+</svg>
