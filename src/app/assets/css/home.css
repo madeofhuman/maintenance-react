@@ -1,0 +1,209 @@
+@import url("base.css");
+
+.body .article{
+	padding: 40px 0 0 50px;
+}
+
+.body .article .icon{
+	padding-right: 40px;
+}
+
+.body .article .icon img{
+	height: 100px;
+	padding-top: 40px;
+}
+
+.body .article .text{
+	width: 400px;
+	position: relative;
+}
+
+.body #login-links{
+	top: 50%;
+  position: absolute;
+  right: 0px;
+}
+
+.body form{
+	padding: 10px;
+	position: absolute;
+	right: 50px;
+	padding-top: 50px;
+	z-index: 20;
+	border: 1px solid rgba(220, 220, 220, 0.5);
+}
+
+form .output {
+	top: -5px;
+	position: relative;
+	width: 300px;
+	z-index: -2;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+form .close-btn{
+	width: 30px;
+	height: 30px;
+	border: 2px dashed rgba(220, 220, 220, 0.5);
+	border-radius: 50%;
+	text-align: center;
+	font-size: 20px;
+	cursor: pointer;
+	position: relative;
+	top: -35px;
+}
+
+.body form input{
+	height: 35px;
+	width: 300px;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	text-decoration: none;
+	border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+	caret-color: rgba(220, 220, 220, 0.5);
+	color: #F2994A;
+	font-size: 1.2em;
+}
+
+.body form input:focus{
+	outline: none;
+}
+
+.body form label{
+	display: block;
+	color: rgba(220, 220, 220, 1);
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+.body form input[type="submit"],
+.body form input[type="button"]{
+	border: none;
+	cursor: pointer;
+	width: auto;
+	padding: 0px;
+}
+
+h2{
+	font-size: 2em;
+}
+
+p{
+	font-size: 1.2em;
+}
+
+
+
+/* Responsive Layout Styles */
+
+@media (max-width: 1000px) {
+	h2{
+		font-size: 1.5em;
+	}
+	p{
+		font-size: 1em;
+	}
+	.body .article{
+		padding: 30px 0 0 25px;
+	}
+}
+
+@media (max-width: 923px) {
+	h2{
+		font-size: 1.5em;
+	}
+	p{
+		font-size: 1em;
+	}
+	.body .article{
+		padding: 30px 0 0 25px;
+	}
+	.body .article .text{
+		width: 300px;
+		position: relative;
+	}
+}
+
+@media (max-width: 845px) {
+	h2{
+		font-size: 1.5em;
+	}
+	p{
+		font-size: 1em;
+	}
+	.body .article{
+		padding: 30px;
+	}
+	.body .article .text{
+		width: 100%;
+		position: relative;
+	}
+	.body #login-links{
+  	position: relative;
+  	width: 100%;
+  	text-align: center;
+  	padding-top: 20px;
+	}
+	.body #login-links .left,
+	.body #login-links .right{
+		float: none;
+	}
+	.body form{
+		padding: 30px auto;
+		position: relative;
+		z-index: 20;
+	}
+
+	.form {
+		left: -200px;
+		position: relative;
+	}
+
+	.form .close-btn {
+		top: -35px;
+	}
+
+}
+
+@media (max-width: 700px) {
+	.body .article{
+		width: 80%;
+		padding: 10px 50px;
+		height: auto;
+		margin-left: 80px;
+	}
+
+	.article .icon {
+		display: block;
+	}
+
+	.article .icon img {
+		margin-bottom: 20px;
+	}
+
+	.form {
+		left: -130px;
+		position: relative;
+	}
+
+	.form .close-btn {
+		top: -35px;
+	}
+}
+
+@media (max-width: 425px) {
+	.form {
+		left: 0;
+	}
+
+	/* .footer {
+		bottom: -500px;
+	} */
+
+	.body .article {
+		width: 90%;
+		padding: 10px;
+		margin-left: 15px;
+	}
+}

@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+#four-o-four-message {
+  font-size: 2em;
+  margin: 30vh auto 0;
+}
+
+#back-btn {
+  font-size: 1em;
+  margin: 10px auto 0; 
+  display: block;
+  cursor: pointer;
+  text-decoration: underline;
+  line-height: 2em;
+}
+
+.center {
+  display: block;
+  text-align: center;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './app/containers/AppComponent';
 
-ReactDOM.render(<div>Maintenance Tracker App in React.</div>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
