@@ -114,13 +114,8 @@ class SignupForm extends Component {
   }
 }
 
-SignupForm.defaultProps = {
-  history: {},
-};
-
 SignupForm.propTypes = {
   handleClose: PropTypes.func.isRequired,
-  history: PropTypes.shape({}),
   signup: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
