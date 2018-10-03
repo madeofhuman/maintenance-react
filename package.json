@@ -2,7 +2,7 @@
   "name": "maintenance-react",
   "version": "1.0.0",
   "description": "A React implementation of the Maintenance Tracker App (https://github.com/madeofhuman/Maintenance-Tracker-App)",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "dependencies": {
     "@babel/core": "^7.1.2",
     "@babel/node": "^7.0.0",
