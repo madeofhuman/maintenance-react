@@ -6,6 +6,11 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index_bundle.js',
+    publicPath: '/',
+  },
+  devtool: 'cheap-module-source-map',
+  devServer: {
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.jsx'],

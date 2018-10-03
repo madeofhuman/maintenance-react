@@ -21,12 +21,13 @@
       "import/extensions": 0,
       "require-jsdoc": 0,
       "valid-jsdoc": 0,
+      "consistent-return": 0,
       "jsx-a11y/label-has-for":0,
       "jsx-a11y/no-static-element-interactions": 0,
       "jsx-a11y/click-events-have-key-events": 0,
       "react/jsx-one-expression-per-line": 0,
       "react/forbid-prop-types": ["error", { "allow": ["object"] }],
-      "jsx-a11y/anchor-is-valid": [ "error", {
+      "jsx-a11y/anchor-is-valid": [ "allow", {
         "components": [ "Link", "NavLink" ],
         "specialLink": [ "to" ]
       }]
@@ -37,6 +38,7 @@
     "describe": true,
     "expect": true,
     "it": true,
+    "test": true,
     "fetch": true,
     "jest": true
   }
