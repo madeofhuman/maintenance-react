@@ -23,7 +23,11 @@ const authenticate = (userData, history, path) => async (dispatch) => {
       case 200:
         dispatch({ type: types.LOGIN, payload: data });
         dispatch({ type: types.COMPLETE });
-        history.push('/dashboard');
+        if (data.user.role === 'user') {
+          history.push('/dashboard');
+        } else {
+          history.push('/admin');
+        }
         toastr.success(data.message);
         break;
       default:
