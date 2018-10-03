@@ -104,12 +104,59 @@ a{
 	color: darkred;
 }
 
+.loader-container {
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+	position: fixed;
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.9);
+}
+
+.loader {
+	position: fixed;
+	width: auto;
+	height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+	background: rgba(0, 0, 0, 0.9);
+	z-index: 1;
+}
+
+.modal-main {
+  position:fixed;
+  width: auto;
+  height: auto;
+  top:50%;
+  left:50%;
+	transform: translate(-50%,-50%);
+	padding: 20px;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
 /* Fix for Chrome's autofill background-color bug (source: https://bit.ly/2It6O7K)*/
 
-.body form input:-webkit-autofill,
-.body form input:-webkit-autofill:hover,
-.body form input:-webkit-autofill:active,
-.body form input:-webkit-autofill:focus {
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover,
+form input:-webkit-autofill:active,
+form input:-webkit-autofill:focus {
     -webkit-transition-delay: 7200s;
 }
 

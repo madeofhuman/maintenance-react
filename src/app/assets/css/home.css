@@ -21,21 +21,17 @@
 .body #login-links{
 	top: 50%;
   position: absolute;
-  right: 0px;
+  right: 50px;
 }
 
-.body form{
+form{
 	padding: 10px;
-	position: absolute;
-	right: 50px;
 	padding-top: 50px;
-	z-index: 20;
 	border: 1px solid rgba(220, 220, 220, 0.5);
 }
 
 form .output {
 	top: -5px;
-	position: relative;
 	width: 300px;
 	z-index: -2;
 	margin-top: 10px;
@@ -54,7 +50,7 @@ form .close-btn{
 	top: -35px;
 }
 
-.body form input{
+form input{
 	height: 35px;
 	width: 300px;
 	background-color: rgba(0,0,0,0);
@@ -66,11 +62,11 @@ form .close-btn{
 	font-size: 1.2em;
 }
 
-.body form input:focus{
+form input:focus{
 	outline: none;
 }
 
-.body form label{
+form label{
 	display: block;
 	color: rgba(220, 220, 220, 1);
 	font-size: 1.2em;
@@ -83,6 +79,15 @@ form .close-btn{
 	cursor: pointer;
 	width: auto;
 	padding: 0px;
+}
+
+.auth-submit-btn {
+	border-bottom: none;
+	cursor: pointer;
+}
+
+.auth-submit-btn {
+	border: 2px solid rgba(220, 220, 220, 0.993);
 }
 
 h2{
