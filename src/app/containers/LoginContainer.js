@@ -78,13 +78,9 @@ class LoginForm extends Component {
   }
 }
 
-LoginForm.defaultProps = {
-  history: {},
-};
-
 LoginForm.propTypes = {
   handleClose: PropTypes.func.isRequired,
-  history: PropTypes.shape({}),
+  history: PropTypes.shape({}).isRequired,
   login: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };

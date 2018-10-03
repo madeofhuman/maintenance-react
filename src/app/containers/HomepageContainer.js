@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Navbar from '../components/common/NavbarComponent';
 import '../assets/css/home.css';
 import wrenchHammer from '../assets/img/wrench-hammer.svg';
@@ -30,10 +31,11 @@ class Homepage extends Component {
 
   render() {
     const { show, modalContent } = this.state;
+    const { history } = this.props;
     return (
       <main>
         <Modal show={show} handleClose={this.hideModal}>
-          { modalContent === 'sign-in' ? <LoginForm handleClose={this.hideModal} /> : <SignupForm handleClose={this.hideModal} /> }
+          { modalContent === 'sign-in' ? <LoginForm handleClose={this.hideModal} history={history} /> : <SignupForm handleClose={this.hideModal} /> }
         </Modal>
         <div className="wrapper">
           <div className="header">
@@ -75,5 +77,9 @@ class Homepage extends Component {
     );
   }
 }
+
+Homepage.propTypes = {
+  history: PropTypes.shape({}).isRequired,
+};
 
 export default Homepage;
