@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/common/NavbarComponent';
+import Navbar from '../components/NavbarComponent';
 
 const NotFound = () => (
   <React.Fragment>

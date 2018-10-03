@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Navbar from '../components/common/NavbarComponent';
+import Navbar from '../components/NavbarComponent';
 import '../assets/css/home.css';
 import wrenchHammer from '../assets/img/wrench-hammer.svg';
 import backgroundImage from '../assets/img/gears.svg';
-import Modal from '../components/common/Modal';
+import Modal from '../components/ModalComponent';
 import LoginForm from './LoginContainer';
 import SignupForm from './SignupContainer';
 

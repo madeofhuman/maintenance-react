@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
+import Logo from './LogoComponent';
 import ProfileIcon from './ProfileIcon';
 
 const Navbar = ({ profileIconVisibility }) => (
