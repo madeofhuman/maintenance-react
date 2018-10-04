@@ -58,11 +58,13 @@ class Dashboard extends Component {
                 </span>
                 &nbsp;
               </span>
-              <span>
-                <a href="/new">
-                  <Input id="new-request-btn" className="button" type="button" value="New Request" />
-                </a>
-              </span>
+              { user.role !== 'admin' ? (
+                <span>
+                  <a href="/new">
+                    <Input id="new-request-btn" className="button" type="button" value="New Request" />
+                  </a>
+                </span>)
+                : false }
             </div>
             <br />
             <br />

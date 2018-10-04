@@ -29,7 +29,7 @@ const RequestTable = ({ requests, message }) => (
                 <td>{request.detail}</td>
                 <td>{request.status}</td>
                 <td>
-                  <Link to={`view?id=${request.id}`}>
+                  <Link to={`view/${request.id}`}>
                     <Input type="button" value="View" className="button" />
                   </Link>
                 </td>

@@ -4,15 +4,18 @@ import { Provider } from 'react-redux';
 import Homepage from './HomepageContainer';
 import Dashboard from './DashboardContainer';
 import NotFound from './NotFoundContainer';
+import ViewRequest from './ViewRequestContainer';
 import store from '../store/store';
+import PrivateRoute from '../components/PrivateRouteComponent';
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Homepage} />
-        <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/admin" exact component={Dashboard} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/admin" component={Dashboard} />
+        <PrivateRoute exact path="/view/:requestId" component={ViewRequest} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
