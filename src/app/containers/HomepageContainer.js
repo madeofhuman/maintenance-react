@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import toastr from 'toastr';
 import Navbar from '../components/NavbarComponent';
 import '../assets/css/home.css';
 import wrenchHammer from '../assets/img/wrench-hammer.svg';

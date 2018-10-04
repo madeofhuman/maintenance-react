@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
           <Component {...props} />
         )
         : (
-          <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+          <Redirect to="/" />
         )
     )}
   />
@@ -20,6 +20,7 @@ const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
 
 PrivateRoute.propTypes = {
   authenticated: PropTypes.bool.isRequired,
+  component: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

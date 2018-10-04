@@ -40,7 +40,6 @@ class ViewRequest extends Component {
 
 ViewRequest.propTypes = {
   request: PropTypes.shape({}).isRequired,
-  history: PropTypes.shape({}).isRequired,
   getRequest: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   user: PropTypes.shape({}).isRequired,
@@ -50,7 +49,6 @@ ViewRequest.propTypes = {
 const matchStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   request: state.requests.request,
-  history: ownProps.history,
   match: ownProps.match,
   user: state.auth.user,
 });
