@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
-import Input from '../components/common/Input';
+import Input from '../components/InputComponent';
 import authenticate from '../actions/authActions';
-import Loader from '../components/common/Loader';
+import Loader from '../components/LoaderComponent';
 
 class SignupForm extends Component {
   constructor(props) {

@@ -22,6 +22,6 @@ const store = createStore(
  */
 store.subscribe(throttle(() => {
   saveState(store.getState());
-}, 1000));
+}, 2000));
 
 export default store;

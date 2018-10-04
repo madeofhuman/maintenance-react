@@ -1,6 +1,6 @@
 import React from 'react';
-import loader from '../../assets/img/loader.svg';
-import '../../assets/css/base.css';
+import loader from '../assets/img/loader.svg';
+import '../assets/css/base.css';
 
 const Loader = () => (
   <div className="loader-container">

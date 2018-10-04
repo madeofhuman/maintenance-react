@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Navbar from '../components/common/NavbarComponent';
+import Navbar from '../components/NavbarComponent';
 import '../assets/css/home.css';
 import wrenchHammer from '../assets/img/wrench-hammer.svg';
 import backgroundImage from '../assets/img/gears.svg';
-import Modal from '../components/common/Modal';
+import Modal from '../components/ModalComponent';
 import LoginForm from './LoginContainer';
 import SignupForm from './SignupContainer';
 
@@ -33,14 +33,12 @@ class Homepage extends Component {
     const { show, modalContent } = this.state;
     const { history } = this.props;
     return (
-      <main>
+      <React.Fragment>
         <Modal show={show} handleClose={this.hideModal}>
           { modalContent === 'sign-in' ? <LoginForm handleClose={this.hideModal} history={history} /> : <SignupForm handleClose={this.hideModal} /> }
         </Modal>
-        <div className="wrapper">
-          <div className="header">
-            <Navbar profileIconVisibility="hidden" />
-          </div>
+        <Navbar profileIconVisibility="hidden" />
+        <div className="">
           <div className="body" style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="article left">
               <span className="icon">
@@ -73,7 +71,7 @@ class Homepage extends Component {
             </div>
           </div>
         </div>
-      </main>
+      </React.Fragment>
     );
   }
 }

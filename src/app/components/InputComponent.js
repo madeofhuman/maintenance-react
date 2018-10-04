@@ -21,6 +21,7 @@ const Input = ({
 Input.defaultProps = {
   isRequired: '',
   className: '',
+  id: '',
   label: undefined,
   handleChange: undefined,
   name: undefined,
@@ -32,7 +33,7 @@ Input.propTypes = {
   value: PropTypes.node.isRequired,
   handleChange: PropTypes.func,
   label: PropTypes.string,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   isRequired: PropTypes.string,
   className: PropTypes.string,
 };
