@@ -1,0 +1,41 @@
+@import url("base.css");
+
+.card{
+  width: auto;
+  max-width: 600px;
+  height: auto;
+  margin: 20px auto;
+  border: 2px solid rgba(220, 220, 220, 0.5);
+  padding: 20px;
+  padding-top: 30px;
+  font-size: 1em;
+}
+
+.row{
+  height: 30px;
+  margin-top: 10px;
+  display: block;
+}
+
+.title{
+  display: block;
+}
+
+#title {
+  font-size: 1.3em;
+}
+
+.center{
+  text-align: center;
+}
+
+#request-btns {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-top: 60px;
+}
+
+#approve-btn, #resolve-btn, #reject-btn {
+  border: 0.1 solid #fff;
+}

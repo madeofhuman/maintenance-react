@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import toastr from 'toastr';
 import Navbar from '../components/NavbarComponent';
 import '../assets/css/home.css';
 import wrenchHammer from '../assets/img/wrench-hammer.svg';
@@ -28,6 +30,21 @@ class Homepage extends Component {
       modalContent: '',
     });
   };
+
+  componentDidMount = () => {
+    const { authenticated, history, role } = this.props;
+    if (authenticated) {
+      if (role === 'user') {
+        history.push('/dashboard');
+      }
+      if (role === 'admin') {
+        history.push('admin');
+      }
+      if (!role) {
+        return true;
+      }
+    }
+  }
 
   render() {
     const { show, modalContent } = this.state;
@@ -76,8 +93,20 @@ class Homepage extends Component {
   }
 }
 
-Homepage.propTypes = {
-  history: PropTypes.shape({}).isRequired,
+Homepage.defaultProps = {
+  role: null,
 };
 
-export default Homepage;
+Homepage.propTypes = {
+  history: PropTypes.shape({}).isRequired,
+  authenticated: PropTypes.bool.isRequired,
+  role: PropTypes.string,
+};
+
+const mapStateToProps = (state, ownProps) => ({
+  authenticated: state.auth.authenticated,
+  history: ownProps.history,
+  role: state.auth.user !== null ? state.auth.user.role : null,
+});
+
+export default connect(mapStateToProps, null)(Homepage);

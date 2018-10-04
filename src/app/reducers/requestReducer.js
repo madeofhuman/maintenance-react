@@ -9,6 +9,7 @@ const initialState = {
 const requestReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_ALL_REQUESTS:
+    case types.GET_ALL_REQUESTS_ADMIN:
       return {
         ...state,
         requests: [...action.payload.requests],
@@ -18,12 +19,6 @@ const requestReducer = (state = initialState, action) => {
       return {
         ...state,
         request: action.payload.request,
-        message: action.payload.message,
-      };
-    case types.GET_ALL_REQUESTS_ADMIN:
-      return {
-        ...state,
-        requests: [...action.payload.requests],
         message: action.payload.message,
       };
     default:
