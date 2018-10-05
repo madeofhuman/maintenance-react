@@ -45,7 +45,7 @@ class RequestForm extends Component {
   render() {
     const { handleClose, initialValues } = this.props;
     const {
-      type, item, model, detail, id, isNew,
+      type, item, model, detail, id,
     } = this.state;
     return (
       <React.Fragment>
@@ -56,7 +56,7 @@ class RequestForm extends Component {
             name="id"
             value={id}
           />
-          <label id="title" className="left orange center">{ isNew ? 'Create a new request' : 'Update request' }</label>
+          <label id="title" className="left orange center">{ initialValues === undefined ? 'Create a new request' : 'Update request' }</label>
           <select name="type" id="type" required="required" className="transparent-selector" value={type} onChange={this.handleChange}>
             <option value="" disabled>Select request type</option>
             <option value="maintenance">Maintenance</option>
@@ -103,13 +103,10 @@ class RequestForm extends Component {
 }
 
 RequestForm.defaultProps = {
-  history: undefined,
   initialValues: undefined,
 };
 
 RequestForm.propTypes = {
-  request: PropTypes.shape({}).isRequired,
-  history: PropTypes.shape({}),
   createRequest: PropTypes.func.isRequired,
   updateRequest: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
@@ -118,7 +115,6 @@ RequestForm.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  request: state.requests.request,
   history: ownProps.history,
   match: ownProps.match,
 });

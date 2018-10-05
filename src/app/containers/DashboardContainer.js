@@ -20,18 +20,6 @@ class Dashboard extends Component {
     };
   }
 
-  showModal = (event) => {
-    this.setState({
-      show: true,
-    });
-  };
-
-  hideModal = () => {
-    this.setState({
-      show: false,
-    });
-  };
-
   componentDidMount = () => {
     const { getRequests, history, user } = this.props;
     if (user.role !== 'admin') {
@@ -43,8 +31,20 @@ class Dashboard extends Component {
     getRequests();
   }
 
+  showModal = () => {
+    this.setState({
+      show: true,
+    });
+  };
+
+  hideModal = () => {
+    this.setState({
+      show: false,
+    });
+  };
+
   render() {
-    const { show, modalContent } = this.state;
+    const { show } = this.state;
     const {
       loading, requests, user, message,
     } = this.props;

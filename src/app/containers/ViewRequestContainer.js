@@ -38,7 +38,7 @@ class ViewRequest extends Component {
   };
 
   deleteRequest = () => {
-    const { match, deleteRequest, history } = this.props;
+    const { match, deleteRequest } = this.props;
     const { requestId } = match.params;
     deleteRequest(requestId);
   }
@@ -102,7 +102,6 @@ ViewRequest.propTypes = {
   loading: PropTypes.bool.isRequired,
   user: PropTypes.shape({}).isRequired,
   match: PropTypes.shape({}).isRequired,
-  history: PropTypes.shape({}).isRequired,
   deleteRequest: PropTypes.func.isRequired,
   approveRequest: PropTypes.func.isRequired,
   disapproveRequest: PropTypes.func.isRequired,
@@ -114,7 +113,6 @@ const matchStateToProps = (state, ownProps) => ({
   request: state.requests.request,
   match: ownProps.match,
   user: state.auth.user,
-  history: ownProps.history,
 });
 
 const matchDispatchToProps = dispatch => bindActionCreators({
