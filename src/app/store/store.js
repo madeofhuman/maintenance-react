@@ -18,10 +18,10 @@ const store = createStore(
 );
 
 /**
- * update the state of the store in localStorage every second
+ * update the state of the store in localStorage every 100ms
  */
 store.subscribe(throttle(() => {
   saveState(store.getState());
-}, 2000));
+}, 100));
 
 export default store;

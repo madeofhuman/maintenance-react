@@ -1,0 +1,83 @@
+@import url('request.css');
+
+.form {
+  display: grid;
+  align-content: center;
+}
+
+.form > *{
+  margin: auto;
+  width: 100%;
+}
+
+.request-form .close-btn {
+	position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.request-form textarea {
+	resize: none;
+	height: 100px;
+	background-color: rgba(0,0,0,0);
+	color: #fff;
+	caret-color: rgba(220, 220, 220, 0.5);
+	font-size: 1.2em;
+	border: none;
+	text-decoration: none;
+	border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+}
+
+.request-form .transparent-selector, .request-form input {
+	background-color: rgba(0,0,0,0);
+	color: #FFF;
+	font-size: 1.2em;
+	text-decoration: none;
+}
+
+#new-request-btn {
+  margin-top: 15px;
+}
+
+form > * {
+  height: 35px;
+  font-size: 1em;
+}
+
+.body form input,
+.body form select,
+.body form textarea{
+	height: 35px;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	text-decoration: none;
+	border-bottom: 2px solid rgba(220, 220, 220, 0.5);
+	caret-color: rgba(220, 220, 220, 0.5);
+	color: #F2994A;
+	font-size: 1.2em;
+}
+
+.body form textarea{
+	font-family: 'Rubik', sans-serif;
+}
+
+.body form input:focus,
+.body form select:focus,
+.body form textarea:focus{
+	outline: none;
+}
+
+.body form label{
+	display: block;
+	color: rgba(220, 220, 220, 1);
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+.body form input[type="submit"],
+.body form input[type="button"]{
+	border: none;
+	cursor: pointer;
+	width: auto;
+	padding: 0px;
+}

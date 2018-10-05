@@ -53,7 +53,7 @@ class Homepage extends Component {
         <Modal show={show} handleClose={this.hideModal}>
           { modalContent === 'sign-in' ? <LoginForm handleClose={this.hideModal} history={history} /> : <SignupForm handleClose={this.hideModal} /> }
         </Modal>
-        <Navbar profileIconVisibility="hidden" />
+        <Navbar />
         <div className="">
           <div className="body" style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="article left">

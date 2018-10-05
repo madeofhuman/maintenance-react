@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Input from './InputComponent';
 
-const displayButtons = (requestStatus, userRole, requestId) => {
+const displayButtons = (requestStatus, userRole, requestActions, showModal) => {
   if (userRole === 'admin') {
     switch (requestStatus) {
       case 'in-review':
@@ -12,7 +12,7 @@ const displayButtons = (requestStatus, userRole, requestId) => {
             <br /><br />
             <Input
               type="button"
-              onclick="approveRequest()"
+              handleClick={requestActions.approveRequest}
               className="button left green-bg white"
               id="approve-btn"
               value="Approve"
@@ -20,7 +20,7 @@ const displayButtons = (requestStatus, userRole, requestId) => {
             <br />
             <Input
               type="button"
-              onclick="disapproveRequest()"
+              handleClick={requestActions.disapproveRequest}
               className="button left green-bg white"
               id="disapprove-btn"
               value="Disapprove"
@@ -33,7 +33,7 @@ const displayButtons = (requestStatus, userRole, requestId) => {
           <React.Fragment>
             <Input
               type="button"
-              onclick="resolveRequest()"
+              handleClick={requestActions.resolveRequest}
               className="button left green-bg white"
               id="resolve-btn"
               value="Resolve"
@@ -62,21 +62,21 @@ const displayButtons = (requestStatus, userRole, requestId) => {
         return (
           <React.Fragment>
             <br /><br />
-            <Link to={`/request/${requestId}/edit`}>
-              <Input
-                type="button"
-                className="button left green-bg white"
-                id="edit-btn"
-                value="      Edit      "
-              />
-            </Link>
+            <Input
+              type="button"
+              className="button left green-bg white"
+              name="edit-request"
+              handleClick={showModal}
+              id="edit-btn"
+              value="       Edit       "
+            />
             <br />
             <Input
               type="button"
-              onclick="deleteRequest()"
+              handleClick={requestActions.deleteRequest}
               className="button left green-bg white"
               id="delete-btn"
-              value="   Delete   "
+              value="    Delete    "
             />
             <br /><br />
           </React.Fragment>
@@ -87,7 +87,9 @@ const displayButtons = (requestStatus, userRole, requestId) => {
   }
 };
 
-const RequestCard = ({ request, role }) => (
+const RequestCard = ({
+  request, role, requestActions, showModal,
+}) => (
   <div className="card white">
     <div className="row">
       <h2 id="title" className="left orange">{request.item}, {request.type}</h2>
@@ -107,7 +109,7 @@ const RequestCard = ({ request, role }) => (
     <br />
     <br />
     <div className="row center" id="request-btns">
-      {displayButtons(request.status, role, request.id)}
+      {displayButtons(request.status, role, requestActions, showModal)}
     </div>
   </div>
 );
@@ -116,6 +118,8 @@ const RequestCard = ({ request, role }) => (
 RequestCard.propTypes = {
   request: PropTypes.shape({}).isRequired,
   role: PropTypes.string.isRequired,
+  requestActions: PropTypes.shape({}).isRequired,
+  showModal: PropTypes.func.isRequired,
 };
 
 export default RequestCard;

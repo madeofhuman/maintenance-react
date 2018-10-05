@@ -40,7 +40,7 @@ class LoginForm extends Component {
     const { handleClose, loading } = this.props;
     return (
       <React.Fragment>
-        <div id="sign-in-form" className="form">
+        <div id="sign-in-form" className="auth-form">
           <form id="login-form" onSubmit={this.handleSubmit}>
             <span id="sign-up-form-close-btn" className="close-btn grey right" onClick={handleClose}>x</span>
             <p className="output white" />

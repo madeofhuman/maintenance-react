@@ -8,21 +8,20 @@ import Loader from '../components/LoaderComponent';
 import RequestTable from '../components/RequestTableComponent';
 import spannerScrewdriver from '../assets/img/spanner-screwdriver.svg';
 import Input from '../components/InputComponent';
+import Modal from '../components/ModalComponent';
 import '../assets/css/dashboard.css';
+import RequestForm from '../components/RequestForm';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      show: false,
+    };
   }
 
   componentDidMount = () => {
-    const {
-      authenticated, getRequests, history, user,
-    } = this.props;
-    if (!authenticated && user === undefined) {
-      history.push('/');
-    }
+    const { getRequests, history, user } = this.props;
     if (user.role !== 'admin') {
       history.push('/dashboard');
     }
@@ -32,12 +31,28 @@ class Dashboard extends Component {
     getRequests();
   }
 
+  showModal = () => {
+    this.setState({
+      show: true,
+    });
+  };
+
+  hideModal = () => {
+    this.setState({
+      show: false,
+    });
+  };
+
   render() {
+    const { show } = this.state;
     const {
       loading, requests, user, message,
     } = this.props;
     return (
       <React.Fragment>
+        <Modal show={show} handleClose={this.hideModal}>
+          <RequestForm handleClose={this.hideModal} />
+        </Modal>
         <Navbar profileIconVisibility="" />
         <div className="body" style={{ backgroundImage: `url(${spannerScrewdriver})` }}>
           <div className="wrapper">
@@ -60,9 +75,14 @@ class Dashboard extends Component {
               </span>
               { user.role !== 'admin' ? (
                 <span>
-                  <a href="/new">
-                    <Input id="new-request-btn" className="button" type="button" value="New Request" />
-                  </a>
+                  <Input
+                    id="new-request-btn"
+                    className="button"
+                    type="button"
+                    name="new-request"
+                    value="New Request"
+                    handleClick={this.showModal}
+                  />
                 </span>)
                 : false }
             </div>

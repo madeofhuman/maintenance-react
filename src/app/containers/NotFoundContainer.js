@@ -6,7 +6,7 @@ const NotFound = () => (
   <React.Fragment>
     <div className="wrapper">
       <Navbar />
-      <div className="body" style={{ backgroundImage: "url('../assets/img/gears.svg');" }}>
+      <div className="body" style={{ backgroundImage: "url('../assets/img/gears.svg')" }}>
         <div className="wrapper white">
           <h1 className="center" id="four-o-four-message">
             <span role="img" aria-label="sad face">😢</span><br />Nothing exists here.
