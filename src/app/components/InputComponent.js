@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
-  type, name, value, handleChange, label, id, isRequired, className,
+  type, name, value, handleChange, label, id, isRequired, className, handleClick,
 }) => (
   <React.Fragment>
     <label htmlFor={name}>{label}</label>
@@ -14,6 +14,7 @@ const Input = ({
       value={value}
       onChange={handleChange}
       required={isRequired}
+      onClick={handleClick}
     />
   </React.Fragment>
 );
@@ -25,17 +26,20 @@ Input.defaultProps = {
   label: undefined,
   handleChange: undefined,
   name: undefined,
+  handleClick: undefined,
+  value: undefined,
 };
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string,
-  value: PropTypes.node.isRequired,
+  value: PropTypes.node,
   handleChange: PropTypes.func,
   label: PropTypes.string,
   id: PropTypes.string,
   isRequired: PropTypes.string,
   className: PropTypes.string,
+  handleClick: PropTypes.func,
 };
 
 export default Input;

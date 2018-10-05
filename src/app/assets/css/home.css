@@ -24,10 +24,15 @@
   right: 50px;
 }
 
-form{
+form  {
 	padding: 10px;
 	padding-top: 50px;
+	width: 100%;
 	border: 1px solid rgba(220, 220, 220, 0.5);
+}
+
+.auth-form > * {
+	width: 100% !important;
 }
 
 form .output {
