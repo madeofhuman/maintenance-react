@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login form component renders 1`] = `
+<Fragment>
+  <div
+    className="auth-form"
+    id="sign-up-form"
+  >
+    <form
+      id="signup-form"
+      onSubmit={[Function]}
+    >
+      <span
+        className="close-btn grey right"
+        id="sign-up-form-close-btn"
+      >
+        x
+      </span>
+      <p
+        className="output white"
+      />
+      <Input
+        className=""
+        handleChange={[Function]}
+        id="first-name"
+        isRequired="required"
+        label="First Name"
+        name="firstName"
+        type="text"
+        value=""
+      />
+      <br />
+      <br />
+      <Input
+        className=""
+        handleChange={[Function]}
+        id="last-name"
+        isRequired="required"
+        label="Last Name"
+        name="lastName"
+        type="text"
+        value=""
+      />
+      <br />
+      <br />
+      <Input
+        className=""
+        handleChange={[Function]}
+        id="signup-email"
+        isRequired="required"
+        label="Email"
+        name="email"
+        type="text"
+        value=""
+      />
+      <br />
+      <br />
+      <Input
+        className=""
+        handleChange={[Function]}
+        id="signup-password"
+        isRequired="required"
+        label="Password"
+        name="password"
+        type="password"
+        value=""
+      />
+      <br />
+      <br />
+      <Input
+        className=""
+        handleChange={[Function]}
+        id="password-confirm"
+        isRequired="required"
+        label="Confirm Password"
+        name="confirmPassword"
+        type="password"
+        value=""
+      />
+      <br />
+      <br />
+      <Input
+        className="orange auth-submit-btn"
+        id="signup-btn"
+        isRequired=""
+        type="submit"
+        value="Sign up"
+      />
+    </form>
+  </div>
+</Fragment>
+`;

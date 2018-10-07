@@ -6,7 +6,7 @@ import Input from './InputComponent';
 import '../assets/css/new.css';
 import requestActions from '../actions/requestActions';
 
-class RequestForm extends Component {
+export class RequestForm extends Component {
   constructor(props) {
     super(props);
     const { initialValues } = this.props;
@@ -104,12 +104,15 @@ class RequestForm extends Component {
 
 RequestForm.defaultProps = {
   initialValues: undefined,
+  createRequest: undefined,
+  updateRequest: undefined,
+  handleClose: undefined,
 };
 
 RequestForm.propTypes = {
-  createRequest: PropTypes.func.isRequired,
-  updateRequest: PropTypes.func.isRequired,
-  handleClose: PropTypes.func.isRequired,
+  createRequest: PropTypes.func,
+  updateRequest: PropTypes.func,
+  handleClose: PropTypes.func,
   initialValues: PropTypes.shape({}),
   getAllRequests: PropTypes.func.isRequired,
 };

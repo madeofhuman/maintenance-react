@@ -28,10 +28,11 @@ Input.defaultProps = {
   name: undefined,
   handleClick: undefined,
   value: undefined,
+  type: undefined,
 };
 
 Input.propTypes = {
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.node,
   handleChange: PropTypes.func,

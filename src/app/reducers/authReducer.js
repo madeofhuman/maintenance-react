@@ -10,7 +10,9 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGNUP:
-      return state;
+      return {
+        ...state,
+      };
     case types.LOGIN:
       return {
         ...state,

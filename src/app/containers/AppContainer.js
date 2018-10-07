@@ -8,7 +8,7 @@ import ViewRequest from './ViewRequestContainer';
 import store from '../store/store';
 import PrivateRoute from '../components/PrivateRouteComponent';
 
-const App = () => (
+export const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>

@@ -9,7 +9,7 @@ import Modal from '../components/ModalComponent';
 import LoginForm from './LoginContainer';
 import SignupForm from './SignupContainer';
 
-class Homepage extends Component {
+export class Homepage extends Component {
   state = {
     show: false,
     modalContent: '',
