@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/NavbarComponent';
 import '../assets/css/404.css';
 
-const NotFound = () => (
+export const NotFound = () => (
   <React.Fragment>
     <div className="wrapper">
       <Navbar />

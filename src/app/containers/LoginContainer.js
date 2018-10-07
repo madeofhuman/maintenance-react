@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import toastr from 'toastr';
 import Input from '../components/InputComponent';
-import authenticate from '../actions/authActions';
+import authActions from '../actions/authActions';
+import commonActions from '../actions/commonActions';
 import Loader from '../components/LoaderComponent';
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,22 +17,46 @@ class LoginForm extends Component {
     };
   }
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
+  componentDidUpdate() {
+    const {
+      user, history, error, message, clearMessages,
+    } = this.props;
+    if (user === null && error === null && message === null) {
+      return true;
+    }
+    if (user === null && error !== null && message !== null) {
+      toastr.error(message);
+      clearMessages();
+    }
+    if (user !== null && error === null && message !== null) {
+      if (user.role !== 'user') {
+        history.push('/admin');
+        toastr.success(message);
+        clearMessages();
+      } else {
+        history.push('/dashboard');
+        toastr.success(message);
+        clearMessages();
+      }
+    }
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
     const {
       email, password,
     } = this.state;
-    const { login, history } = this.props;
+    const { login } = this.props;
     const user = {
       email, password,
     };
-    return login(user, history, 'login');
+    return login(user, 'login');
+  };
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
 
   render() {
@@ -78,20 +104,34 @@ class LoginForm extends Component {
   }
 }
 
+LoginForm.defaultProps = {
+  user: null,
+  error: null,
+  message: null,
+};
+
 LoginForm.propTypes = {
   handleClose: PropTypes.func.isRequired,
   history: PropTypes.shape({}).isRequired,
   login: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  user: PropTypes.shape({}),
+  message: PropTypes.string,
+  error: PropTypes.string,
+  clearMessages: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   history: ownProps.history,
+  user: state.auth.user,
+  message: state.common.message,
+  error: state.common.error,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  login: (user, history, route) => (authenticate.authenticate(user, history, route)),
+  login: (user, route) => (authActions.authenticate(user, route)),
+  clearMessages: () => (commonActions.clearMessages()),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

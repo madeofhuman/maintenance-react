@@ -11,7 +11,7 @@ import Loader from '../components/LoaderComponent';
 import Modal from '../components/ModalComponent';
 import RequestForm from '../components/RequestForm';
 
-class ViewRequest extends Component {
+export class ViewRequest extends Component {
   constructor(props) {
     super(props);
     this.state = {

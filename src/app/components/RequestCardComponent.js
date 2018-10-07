@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Input from './InputComponent';
 
 const displayButtons = (requestStatus, userRole, requestActions, showModal) => {
@@ -41,7 +40,17 @@ const displayButtons = (requestStatus, userRole, requestActions, showModal) => {
           </React.Fragment>
         );
       case 'disapproved':
-      case 'resolved':
+        return (
+          <React.Fragment>
+            <Input
+              type="button"
+              className="button left green-bg white"
+              id="resolve-btn"
+              value="Request Disapproved"
+            />
+          </React.Fragment>
+        );
+      default:
         return (
           <React.Fragment>
             <Input
@@ -52,11 +61,8 @@ const displayButtons = (requestStatus, userRole, requestActions, showModal) => {
             />
           </React.Fragment>
         );
-      default:
-        break;
     }
-  }
-  if (userRole === 'user') {
+  } else {
     switch (requestStatus) {
       case 'in-review':
         return (
@@ -114,12 +120,15 @@ const RequestCard = ({
   </div>
 );
 
+RequestCard.defaultProps = {
+  showModal: undefined,
+};
 
 RequestCard.propTypes = {
   request: PropTypes.shape({}).isRequired,
   role: PropTypes.string.isRequired,
   requestActions: PropTypes.shape({}).isRequired,
-  showModal: PropTypes.func.isRequired,
+  showModal: PropTypes.func,
 };
 
 export default RequestCard;

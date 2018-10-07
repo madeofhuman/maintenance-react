@@ -46,4 +46,140 @@ describe('Request Reducer Test', () => {
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });
+  test('CREATE A REQUEST', () => {
+    const action = {
+      type: 'CREATE_REQUEST',
+      payload: {
+        result: {
+          type: 'repair',
+          item: 'Phillips Iron',
+          model: 'N/A',
+          detail: 'It does not turn on',
+        },
+        message: '',
+      },
+    };
+    const expectedState = {
+      requests: [],
+      request: {
+        type: 'repair',
+        item: 'Phillips Iron',
+        model: 'N/A',
+        detail: 'It does not turn on',
+      },
+      message: '',
+    };
+    expect(requestReducer(undefined, action)).toEqual(expectedState);
+  });
+  test('UPDATE A REQUEST', () => {
+    const action = {
+      type: 'UPDATE_REQUEST',
+      payload: {
+        result: {
+          type: 'repair',
+          item: 'Phillips Iron',
+          model: 'N/A',
+          detail: 'It does not turn on',
+        },
+        message: '',
+      },
+    };
+    const expectedState = {
+      requests: [],
+      request: {
+        type: 'repair',
+        item: 'Phillips Iron',
+        model: 'N/A',
+        detail: 'It does not turn on',
+      },
+      message: '',
+    };
+    expect(requestReducer(undefined, action)).toEqual(expectedState);
+  });
+  test('APPROVE A REQUEST', () => {
+    const action = {
+      type: 'APPROVE_REQUEST',
+      payload: {
+        result: {
+          type: 'repair',
+          item: 'Phillips Iron',
+          model: 'N/A',
+          detail: 'It does not turn on',
+        },
+        message: '',
+      },
+    };
+    const expectedState = {
+      requests: [],
+      request: {
+        type: 'repair',
+        item: 'Phillips Iron',
+        model: 'N/A',
+        detail: 'It does not turn on',
+      },
+      message: '',
+    };
+    expect(requestReducer(undefined, action)).toEqual(expectedState);
+  });
+  test('DISAPPROVE A REQUEST', () => {
+    const action = {
+      type: 'DISAPPROVE_REQUEST',
+      payload: {
+        result: {
+          type: 'repair',
+          item: 'Phillips Iron',
+          model: 'N/A',
+          detail: 'It does not turn on',
+        },
+        message: '',
+      },
+    };
+    const expectedState = {
+      requests: [],
+      request: {
+        type: 'repair',
+        item: 'Phillips Iron',
+        model: 'N/A',
+        detail: 'It does not turn on',
+      },
+      message: '',
+    };
+    expect(requestReducer(undefined, action)).toEqual(expectedState);
+  });
+  test('RESOLVE A REQUEST', () => {
+    const action = {
+      type: 'RESOLVE_REQUEST',
+      payload: {
+        result: {
+          type: 'repair',
+          item: 'Phillips Iron',
+          model: 'N/A',
+          detail: 'It does not turn on',
+        },
+        message: '',
+      },
+    };
+    const expectedState = {
+      requests: [],
+      request: {
+        type: 'repair',
+        item: 'Phillips Iron',
+        model: 'N/A',
+        detail: 'It does not turn on',
+      },
+      message: '',
+    };
+    expect(requestReducer(undefined, action)).toEqual(expectedState);
+  });
+  test('DELETE A REQUEST', () => {
+    const action = {
+      type: 'DELETE_REQUEST',
+    };
+    const expectedState = {
+      requests: [],
+      request: {},
+      message: '',
+    };
+    expect(requestReducer(undefined, action)).toEqual(expectedState);
+  });
 });

@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import Input from '../components/InputComponent';
-import authenticate from '../actions/authActions';
+import authActions from '../actions/authActions';
+import commonActions from '../actions/commonActions';
 import Loader from '../components/LoaderComponent';
 
-class SignupForm extends Component {
+export class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,6 +18,23 @@ class SignupForm extends Component {
       password: '',
       confirmPassword: '',
     };
+  }
+
+  componentDidUpdate() {
+    const {
+      error, message, clearMessages,
+    } = this.props;
+    if (error === null && message === null) {
+      return true;
+    }
+    if (error !== null && message !== null) {
+      toastr.error(message);
+      clearMessages();
+    }
+    if (error === null && message !== null) {
+      toastr.success(message);
+      clearMessages();
+    }
   }
 
   handleChange = (event) => {
@@ -36,8 +54,9 @@ class SignupForm extends Component {
     const user = {
       firstName, lastName, email, password,
     };
-    return signup(user, null, 'signup');
+    return signup(user, 'signup');
   };
+
 
   render() {
     const {
@@ -114,19 +133,30 @@ class SignupForm extends Component {
   }
 }
 
+SignupForm.defaultProps = {
+  error: null,
+  message: null,
+};
+
 SignupForm.propTypes = {
   handleClose: PropTypes.func.isRequired,
   signup: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  message: PropTypes.string,
+  error: PropTypes.string,
+  clearMessages: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   history: ownProps.history,
+  message: state.common.message,
+  error: state.common.error,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  signup: (user, history, route) => (authenticate.authenticate(user, history, route)),
+  signup: (user, route) => (authActions.authenticate(user, route)),
+  clearMessages: () => (commonActions.clearMessages()),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View Request Component renders 1`] = `
+<Fragment>
+  <Modal
+    handleClose={[Function]}
+    show={false}
+  >
+    <Connect(RequestForm)
+      handleClose={[Function]}
+      initialValues={
+        Object {
+          "detail": "it's stuck in a boot loop",
+          "id": 1,
+          "item": "Macbook Pro",
+          "model": "2015",
+          "owner": "josephodina@gmail.com",
+          "type": "repair",
+        }
+      }
+    />
+  </Modal>
+  <Connect(Navbar) />
+  <div
+    className="body"
+    style={
+      Object {
+        "backgroundImage": "url(null)",
+      }
+    }
+  >
+    <p
+      className="output white center"
+      id="output"
+    />
+    <div
+      className="wrapper"
+      id="wrapper"
+    >
+      <RequestCard
+        request={
+          Object {
+            "detail": "it's stuck in a boot loop",
+            "id": 1,
+            "item": "Macbook Pro",
+            "model": "2015",
+            "owner": "josephodina@gmail.com",
+            "type": "repair",
+          }
+        }
+        requestActions={
+          Object {
+            "approveRequest": [Function],
+            "deleteRequest": [Function],
+            "disapproveRequest": [Function],
+            "resolveRequest": [Function],
+          }
+        }
+        role="user"
+        showModal={[Function]}
+      />
+    </div>
+  </div>
+</Fragment>
+`;
