@@ -13,6 +13,7 @@ exports[`Login form component renders 1`] = `
       <span
         className="close-btn grey right"
         id="sign-up-form-close-btn"
+        onClick={[MockFunction]}
       >
         x
       </span>

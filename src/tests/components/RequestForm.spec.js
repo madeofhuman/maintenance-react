@@ -3,7 +3,6 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
 import { RequestForm } from '../../app/components/RequestForm';
 
@@ -16,7 +15,6 @@ let store;
 
 const createRequest = jest.fn();
 const updateRequest = jest.fn();
-const handleChange = jest.fn();
 const getAllRequests = jest.fn();
 const initialValues = {
   id: 1,

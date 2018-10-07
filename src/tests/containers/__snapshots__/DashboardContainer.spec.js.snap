@@ -47,7 +47,24 @@ ShallowWrapper {
     requests={
       Object {
         "message": "You have no requests",
-        "requests": undefined,
+        "requests": Array [
+          Object {
+            "detail": "it's stuck in a boot loop",
+            "id": 1,
+            "item": "Macbook Pro",
+            "model": "2015",
+            "owner": "josephodina@gmail.com",
+            "type": "repair",
+          },
+          Object {
+            "detail": "it's stuck in a boot loop",
+            "id": 2,
+            "item": "Macbook Pro",
+            "model": "2015",
+            "owner": "josephodina@gmail.com",
+            "type": "maintenance",
+          },
+        ],
       }
     }
     showModal={[MockFunction]}
@@ -157,7 +174,24 @@ ShallowWrapper {
               requests={
                 Object {
                   "message": "You have no requests",
-                  "requests": undefined,
+                  "requests": Array [
+                    Object {
+                      "detail": "it's stuck in a boot loop",
+                      "id": 1,
+                      "item": "Macbook Pro",
+                      "model": "2015",
+                      "owner": "josephodina@gmail.com",
+                      "type": "repair",
+                    },
+                    Object {
+                      "detail": "it's stuck in a boot loop",
+                      "id": 2,
+                      "item": "Macbook Pro",
+                      "model": "2015",
+                      "owner": "josephodina@gmail.com",
+                      "type": "maintenance",
+                    },
+                  ],
                 }
               }
             />
@@ -296,7 +330,24 @@ ShallowWrapper {
                 requests={
                   Object {
                     "message": "You have no requests",
-                    "requests": undefined,
+                    "requests": Array [
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 1,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "repair",
+                      },
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 2,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "maintenance",
+                      },
+                    ],
                   }
                 }
               />
@@ -398,7 +449,24 @@ ShallowWrapper {
                   requests={
                     Object {
                       "message": "You have no requests",
-                      "requests": undefined,
+                      "requests": Array [
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 1,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "repair",
+                        },
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 2,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "maintenance",
+                        },
+                      ],
                     }
                   }
                 />,
@@ -743,7 +811,24 @@ ShallowWrapper {
                   "message": undefined,
                   "requests": Object {
                     "message": "You have no requests",
-                    "requests": undefined,
+                    "requests": Array [
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 1,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "repair",
+                      },
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 2,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "maintenance",
+                      },
+                    ],
                   },
                 },
                 "ref": null,
@@ -936,7 +1021,24 @@ ShallowWrapper {
                 requests={
                   Object {
                     "message": "You have no requests",
-                    "requests": undefined,
+                    "requests": Array [
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 1,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "repair",
+                      },
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 2,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "maintenance",
+                      },
+                    ],
                   }
                 }
               />
@@ -1075,7 +1177,24 @@ ShallowWrapper {
                   requests={
                     Object {
                       "message": "You have no requests",
-                      "requests": undefined,
+                      "requests": Array [
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 1,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "repair",
+                        },
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 2,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "maintenance",
+                        },
+                      ],
                     }
                   }
                 />
@@ -1177,7 +1296,24 @@ ShallowWrapper {
                     requests={
                       Object {
                         "message": "You have no requests",
-                        "requests": undefined,
+                        "requests": Array [
+                          Object {
+                            "detail": "it's stuck in a boot loop",
+                            "id": 1,
+                            "item": "Macbook Pro",
+                            "model": "2015",
+                            "owner": "josephodina@gmail.com",
+                            "type": "repair",
+                          },
+                          Object {
+                            "detail": "it's stuck in a boot loop",
+                            "id": 2,
+                            "item": "Macbook Pro",
+                            "model": "2015",
+                            "owner": "josephodina@gmail.com",
+                            "type": "maintenance",
+                          },
+                        ],
                       }
                     }
                   />,
@@ -1522,7 +1658,24 @@ ShallowWrapper {
                     "message": undefined,
                     "requests": Object {
                       "message": "You have no requests",
-                      "requests": undefined,
+                      "requests": Array [
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 1,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "repair",
+                        },
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 2,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "maintenance",
+                        },
+                      ],
                     },
                   },
                   "ref": null,
@@ -3504,7 +3657,24 @@ exports[`App component renders the dashboard 1`] = `
         requests={
           Object {
             "message": "You have no requests",
-            "requests": undefined,
+            "requests": Array [
+              Object {
+                "detail": "it's stuck in a boot loop",
+                "id": 1,
+                "item": "Macbook Pro",
+                "model": "2015",
+                "owner": "josephodina@gmail.com",
+                "type": "repair",
+              },
+              Object {
+                "detail": "it's stuck in a boot loop",
+                "id": 2,
+                "item": "Macbook Pro",
+                "model": "2015",
+                "owner": "josephodina@gmail.com",
+                "type": "maintenance",
+              },
+            ],
           }
         }
       />
@@ -3572,7 +3742,24 @@ ShallowWrapper {
     requests={
       Object {
         "message": "You have no requests",
-        "requests": undefined,
+        "requests": Array [
+          Object {
+            "detail": "it's stuck in a boot loop",
+            "id": 1,
+            "item": "Macbook Pro",
+            "model": "2015",
+            "owner": "josephodina@gmail.com",
+            "type": "repair",
+          },
+          Object {
+            "detail": "it's stuck in a boot loop",
+            "id": 2,
+            "item": "Macbook Pro",
+            "model": "2015",
+            "owner": "josephodina@gmail.com",
+            "type": "maintenance",
+          },
+        ],
       }
     }
     showModal={[MockFunction]}
@@ -3693,7 +3880,24 @@ ShallowWrapper {
               requests={
                 Object {
                   "message": "You have no requests",
-                  "requests": undefined,
+                  "requests": Array [
+                    Object {
+                      "detail": "it's stuck in a boot loop",
+                      "id": 1,
+                      "item": "Macbook Pro",
+                      "model": "2015",
+                      "owner": "josephodina@gmail.com",
+                      "type": "repair",
+                    },
+                    Object {
+                      "detail": "it's stuck in a boot loop",
+                      "id": 2,
+                      "item": "Macbook Pro",
+                      "model": "2015",
+                      "owner": "josephodina@gmail.com",
+                      "type": "maintenance",
+                    },
+                  ],
                 }
               }
             />
@@ -3843,7 +4047,24 @@ ShallowWrapper {
                 requests={
                   Object {
                     "message": "You have no requests",
-                    "requests": undefined,
+                    "requests": Array [
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 1,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "repair",
+                      },
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 2,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "maintenance",
+                      },
+                    ],
                   }
                 }
               />
@@ -3956,7 +4177,24 @@ ShallowWrapper {
                   requests={
                     Object {
                       "message": "You have no requests",
-                      "requests": undefined,
+                      "requests": Array [
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 1,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "repair",
+                        },
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 2,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "maintenance",
+                        },
+                      ],
                     }
                   }
                 />,
@@ -4347,7 +4585,24 @@ ShallowWrapper {
                   "message": undefined,
                   "requests": Object {
                     "message": "You have no requests",
-                    "requests": undefined,
+                    "requests": Array [
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 1,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "repair",
+                      },
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 2,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "maintenance",
+                      },
+                    ],
                   },
                 },
                 "ref": null,
@@ -4551,7 +4806,24 @@ ShallowWrapper {
                 requests={
                   Object {
                     "message": "You have no requests",
-                    "requests": undefined,
+                    "requests": Array [
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 1,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "repair",
+                      },
+                      Object {
+                        "detail": "it's stuck in a boot loop",
+                        "id": 2,
+                        "item": "Macbook Pro",
+                        "model": "2015",
+                        "owner": "josephodina@gmail.com",
+                        "type": "maintenance",
+                      },
+                    ],
                   }
                 }
               />
@@ -4701,7 +4973,24 @@ ShallowWrapper {
                   requests={
                     Object {
                       "message": "You have no requests",
-                      "requests": undefined,
+                      "requests": Array [
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 1,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "repair",
+                        },
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 2,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "maintenance",
+                        },
+                      ],
                     }
                   }
                 />
@@ -4814,7 +5103,24 @@ ShallowWrapper {
                     requests={
                       Object {
                         "message": "You have no requests",
-                        "requests": undefined,
+                        "requests": Array [
+                          Object {
+                            "detail": "it's stuck in a boot loop",
+                            "id": 1,
+                            "item": "Macbook Pro",
+                            "model": "2015",
+                            "owner": "josephodina@gmail.com",
+                            "type": "repair",
+                          },
+                          Object {
+                            "detail": "it's stuck in a boot loop",
+                            "id": 2,
+                            "item": "Macbook Pro",
+                            "model": "2015",
+                            "owner": "josephodina@gmail.com",
+                            "type": "maintenance",
+                          },
+                        ],
                       }
                     }
                   />,
@@ -5205,7 +5511,24 @@ ShallowWrapper {
                     "message": undefined,
                     "requests": Object {
                       "message": "You have no requests",
-                      "requests": undefined,
+                      "requests": Array [
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 1,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "repair",
+                        },
+                        Object {
+                          "detail": "it's stuck in a boot loop",
+                          "id": 2,
+                          "item": "Macbook Pro",
+                          "model": "2015",
+                          "owner": "josephodina@gmail.com",
+                          "type": "maintenance",
+                        },
+                      ],
                     },
                   },
                   "ref": null,

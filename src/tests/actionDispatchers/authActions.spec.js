@@ -34,6 +34,8 @@ const loginSignupFailedResponse = {
 
 let store;
 
+const history = jest.fn();
+
 describe('User Authentication', () => {
   beforeEach(() => {
     fetch.resetMocks();

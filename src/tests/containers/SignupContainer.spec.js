@@ -17,7 +17,7 @@ const props = {
 
 describe('Login form component', () => {
   test('renders', () => {
-    const wrapper = shallow(<SignupForm />);
+    const wrapper = shallow(<SignupForm {...props} />);
     expect(wrapper.exists()).toBe(true);
     expect(toJson(wrapper)).toMatchSnapshot();
   });

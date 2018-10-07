@@ -6,6 +6,25 @@ import { Dashboard } from '../../app/containers/DashboardContainer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const requests = [
+  {
+    id: 1,
+    type: 'repair',
+    item: 'Macbook Pro',
+    model: '2015',
+    detail: "it's stuck in a boot loop",
+    owner: 'josephodina@gmail.com',
+  },
+  {
+    id: 2,
+    type: 'maintenance',
+    item: 'Macbook Pro',
+    model: '2015',
+    detail: "it's stuck in a boot loop",
+    owner: 'josephodina@gmail.com',
+  },
+];
+
 const props = {
   user: {
     firstName: 'Chukwuka',
@@ -36,25 +55,6 @@ const user = {
   email: 'josephodina@gmail.com',
   role: 'user',
 };
-
-const requests = [
-  {
-    id: 1,
-    type: 'repair',
-    item: 'Macbook Pro',
-    model: '2015',
-    detail: "it's stuck in a boot loop",
-    owner: 'josephodina@gmail.com',
-  },
-  {
-    id: 2,
-    type: 'maintenance',
-    item: 'Macbook Pro',
-    model: '2015',
-    detail: "it's stuck in a boot loop",
-    owner: 'josephodina@gmail.com',
-  },
-];
 
 describe('App component', () => {
   test('renders the dashboard', () => {

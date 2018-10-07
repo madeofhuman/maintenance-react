@@ -22,6 +22,7 @@
       "require-jsdoc": 0,
       "valid-jsdoc": 0,
       "valid-typeof": 0,
+      "function-paren-newline": 0,
       "consistent-return": 0,
       "jsx-a11y/label-has-for":0,
       "jsx-a11y/aria-role": 0,

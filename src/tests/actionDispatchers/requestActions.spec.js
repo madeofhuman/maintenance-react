@@ -141,7 +141,7 @@ const requestApprovalSuccess = {
 const requestApprovalFailure = {
   statusCode: 404,
   error: [],
-  message: 'There is no request in review with that id. Please try another request id.'
+  message: 'There is no request in review with that id. Please try another request id.',
 };
 
 let store;
