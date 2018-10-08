@@ -15,7 +15,7 @@ exports[`PrivateRoute Component does not render the component when the user is n
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "7p3xma",
+          "key": "szc784",
           "pathname": "/",
           "search": "",
           "state": undefined,
@@ -39,7 +39,7 @@ exports[`PrivateRoute Component does not render the component when the user is n
         location={
           Object {
             "hash": "",
-            "key": "7p3xma",
+            "key": "szc784",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -71,7 +71,7 @@ exports[`PrivateRoute Component does not render the component when the user is n
           location={
             Object {
               "hash": "",
-              "key": "7p3xma",
+              "key": "szc784",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -122,7 +122,7 @@ exports[`PrivateRoute Component does not render the component when the user is n
             location={
               Object {
                 "hash": "",
-                "key": "7p3xma",
+                "key": "szc784",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
