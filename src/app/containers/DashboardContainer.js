@@ -59,20 +59,7 @@ export class Dashboard extends Component {
             <div className="left white">
               <span id="username">Welcome, {user.firstName}</span>
             </div>
-            <div id="table-sort" className="right white">
-              <span id="sort-group">
-                <span>Sort by: </span>
-                <span>
-                  <select className="dropdown" id="request-status-dropdown">
-                    <option value="all">All</option>
-                    <option value="pending">In-Review</option>
-                    <option value="approved">Pending</option>
-                    <option value="ongoing">Disapproved</option>
-                    <option value="resolved">Resolved</option>
-                  </select>
-                </span>
-                &nbsp;
-              </span>
+            <div className="right white">
               { user.role !== 'admin' ? (
                 <span>
                   <Input
@@ -89,10 +76,6 @@ export class Dashboard extends Component {
             <br />
             <br />
             {requests ? <RequestTable requests={requests} message={message} /> : false}
-            <span className="table-nav right hidden">
-              <Input type="button" value="<" className="button" />
-              <Input type="button" value=">" className="button" />
-            </span>
           </div>
           <br />
           <div className="divider" />

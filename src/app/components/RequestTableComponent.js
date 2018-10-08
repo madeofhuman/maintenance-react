@@ -1,51 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Input from './InputComponent';
+import { TablePagination } from 'react-pagination-table';
 
-const RequestTable = ({ requests, message }) => (
-  <React.Fragment>
-    <div className="table-wrapper" id="table-wrapper">
-      { requests.length > 0 ? (
-        <table className="table white" id="requests-table">
-          <thead className="orange">
-            <tr>
-              <th>S/N</th>
-              <th>Item Name</th>
-              <th>Model</th>
-              <th>Request Type</th>
-              <th>Description</th>
-              <th>Status</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            { requests.map((request, i) => (
-              <tr key={i}>
-                <td>{i + 1}</td>
-                <td>{request.item}</td>
-                <td>{request.model}</td>
-                <td>{request.type}</td>
-                <td>{request.detail}</td>
-                <td>{request.status}</td>
-                <td>
-                  <Link to={`view/${request.id}`}>
-                    <Input type="button" value="View" className="button" />
-                  </Link>
-                </td>
-              </tr>
-            ))
-            }
-          </tbody>
-        </table>)
-        : (
-          <div className="wrapper white">
-            <p>{message}</p>
-          </div>)
-        }
-    </div>
-  </React.Fragment>
-);
+const RequestTable = ({ requests, message }) => {
+  const parsedRequests = requests.map((request, i) => ({
+    ...request,
+    index: i + 1,
+    link: (<Link to={`view/${request.id}`}><input type="button" value="View" className="button" /></Link>),
+  }));
+  return (
+    <React.Fragment>
+      <div className="table-wrapper" id="table-wrapper">
+        { requests.length > 0 ? (
+          <TablePagination
+            headers={['ID', 'Item Name', 'Model', 'Request Type', 'Description', 'Status', '']}
+            data={parsedRequests}
+            columns="index.item.model.type.detail.status.link"
+            perPageItemCount={20}
+            totalCount={requests.length}
+            className__table="table white"
+            className__header="orange"
+          />)
+          : (
+            <div className="wrapper white">
+              <p>{message}</p>
+            </div>)
+          }
+      </div>
+    </React.Fragment>
+  );
+};
 
 RequestTable.propTypes = {
   requests: PropTypes.arrayOf(PropTypes.object).isRequired,
