@@ -1,9 +1,9 @@
 import types from '../actions/commonTypes';
 
 const initialState = {
-  requests: [],
-  request: {},
-  message: '',
+  requests: undefined,
+  request: undefined,
+  message: undefined,
 };
 
 const requestReducer = (state = initialState, action) => {
@@ -32,9 +32,7 @@ const requestReducer = (state = initialState, action) => {
         message: action.payload.message,
       };
     case types.DELETE_REQUEST:
-      return {
-        ...state,
-      };
+      return state;
     default:
       return state;
   }

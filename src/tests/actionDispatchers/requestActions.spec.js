@@ -70,7 +70,7 @@ const requestCreateSuccess = {
 const requestCreateFailure = {
   statusCode: 400,
   error: 'Bad Request',
-  message: 'child "detail" fails because [a detail can only contain alphabets, numbers, hyphens, apostrophes, commas, and periods, and is less than 141 characters,]',
+  message: 'A detail can only contain alphabets, numbers, hyphens, apostrophes, commas, and periods, and is less than 141 characters',
   validation: {
     source: 'body',
     keys: [
@@ -328,7 +328,7 @@ describe('Create Request Actions', () => {
     await fetch.mockResponseOnce(JSON.stringify(requestCreateFailure));
     const expectedActions = [
       { type: 'LOADING' },
-      { type: 'PROCESS_ERROR' },
+      { type: 'PROCESS_ERROR', payload: { error: requestCreateFailure.error, message: requestCreateFailure.message } },
       { type: 'COMPLETE' },
     ];
 

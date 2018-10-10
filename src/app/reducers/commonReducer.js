@@ -2,8 +2,8 @@ import types from '../actions/commonTypes';
 
 const initialState = {
   loading: false,
-  error: null,
-  message: null,
+  error: undefined,
+  message: undefined,
 };
 
 const commonReducer = (state = initialState, action) => {
@@ -18,8 +18,13 @@ const commonReducer = (state = initialState, action) => {
         ...state,
         loading: false,
       };
-    case types.PROCESS_ERROR:
     case types.NETWORK_ERROR:
+      return {
+        ...state,
+        error: 'Network error',
+        message: 'Network error',
+      };
+    case types.PROCESS_ERROR:
       return {
         ...state,
         error: action.payload.error,
@@ -28,8 +33,8 @@ const commonReducer = (state = initialState, action) => {
     case types.CLEAR_MESSAGES:
       return {
         ...state,
-        error: null,
-        message: null,
+        error: undefined,
+        message: undefined,
       };
     case types.SIGNUP:
     case types.LOGIN:

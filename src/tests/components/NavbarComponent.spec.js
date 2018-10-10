@@ -15,9 +15,6 @@ Enzyme.configure({ adapter: new Adapter() });
 let store;
 
 describe('Navbar component', () => {
-  beforeEach(() => {
-    fetch.resetMocks();
-  });
   test('renders', () => {
     store = mockStore({
       auth: {

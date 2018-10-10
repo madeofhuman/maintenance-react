@@ -14,7 +14,6 @@ const getAllRequests = () => async (dispatch, getState) => {
   try {
     const response = await fetch(`${baseUrl}`, {
       headers: { Authorization: `Bearer ${token}` },
-      cache: 'reload',
     });
     const data = await response.json();
     switch (data.statusCode) {
@@ -33,27 +32,25 @@ const getAllRequests = () => async (dispatch, getState) => {
         dispatch({ type: types.COMPLETE });
         toastr.error(data.message);
     }
-  } catch (error) {
+  } catch {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
   }
 };
 
-const getSingleRequest = requestData => async (dispatch, getState) => {
+const getSingleRequest = requestId => async (dispatch, getState) => {
   const state = getState();
   const { token, user } = state.auth;
   let baseUrl = '';
   if (user.role === 'user') {
-    baseUrl = `https://maintain-r.herokuapp.com/api/v1/users/requests/${requestData}`;
+    baseUrl = `https://maintain-r.herokuapp.com/api/v1/users/requests/${requestId}`;
   } else {
-    baseUrl = `https://maintain-r.herokuapp.com/api/v1/requests/${requestData}`;
+    baseUrl = `https://maintain-r.herokuapp.com/api/v1/requests/${requestId}`;
   }
   dispatch({ type: types.LOADING });
   try {
     const response = await fetch(`${baseUrl}`, {
       headers: { Authorization: `Bearer ${token}` },
-      cache: 'reload',
     });
     const data = await response.json();
     switch (data.statusCode) {
@@ -72,10 +69,10 @@ const getSingleRequest = requestData => async (dispatch, getState) => {
         dispatch({ type: types.COMPLETE });
         toastr.error(data.message);
     }
-  } catch (error) {
+  } catch {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
+    toastr.error('');
   }
 };
 
@@ -100,16 +97,16 @@ const createRequest = requestData => async (dispatch, getState) => {
         dispatch({ type: types.COMPLETE });
         toastr.success(data.message);
         break;
+      case 400:
       default:
-        dispatch({ type: types.PROCESS_ERROR });
+        dispatch({ type: types.PROCESS_ERROR, payload: { error: data.error, message: data.message } });
         dispatch({ type: types.COMPLETE });
         toastr.error(data.message);
         break;
     }
-  } catch (error) {
+  } catch {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
   }
 };
 
@@ -142,7 +139,7 @@ const deleteRequest = requestId => async (dispatch, getState) => {
   } catch (error) {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
+    toastr.error('Network error');
   }
 };
 
@@ -176,7 +173,7 @@ const updateRequest = (requestData, requestId) => async (dispatch, getState) => 
   } catch (error) {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
+    toastr.error('Network error');
   }
 };
 
@@ -209,7 +206,7 @@ const approveRequest = requestId => async (dispatch, getState) => {
   } catch (error) {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
+    toastr.error('Network error');
   }
 };
 
@@ -242,7 +239,7 @@ const disapproveRequest = requestId => async (dispatch, getState) => {
   } catch (error) {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
+    toastr.error('Network error');
   }
 };
 
@@ -275,7 +272,7 @@ const resolveRequest = requestId => async (dispatch, getState) => {
   } catch (error) {
     dispatch({ type: types.NETWORK_ERROR });
     dispatch({ type: types.COMPLETE });
-    toastr.error(error);
+    toastr.error('Network error');
   }
 };
 

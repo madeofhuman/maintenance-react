@@ -97,26 +97,33 @@ const RequestCard = ({
   request, role, requestActions, showModal,
 }) => (
   <div className="card white">
-    <div className="row">
-      <h2 id="title" className="left orange">{request.item}, {request.type}</h2>
-      <p id="date" className="right">{new Date(request.created_at).toDateString()}</p>
-    </div>
-    <small className="left white small" id="model">{request.model} -</small>
-    <em id="status">&nbsp;{request.status}</em>
-    <br />
-    <div className="row">
-      <div className="left" id="owner">{`by ${request.owner}`}</div>
-    </div>
-    <br />
-    <div className="row">
-      <em id="detail">{request.detail}</em>
-    </div>
-    <br />
-    <br />
-    <br />
-    <div className="row center" id="request-btns">
-      {displayButtons(request.status, role, requestActions, showModal)}
-    </div>
+    {
+      typeof request === 'object' ? (
+        <React.Fragment>
+          <div className="row">
+            <h2 id="title" className="left orange">{request.item}, {request.type}</h2>
+            <p id="date" className="right">{new Date(request.created_at).toDateString()}</p>
+          </div>
+          <small className="left white small" id="model">{request.model} -</small>
+          <em id="status">&nbsp;{request.status}</em>
+          <br />
+          <div className="row">
+            <div className="left" id="owner">{`by ${request.owner}`}</div>
+          </div>
+          <br />
+          <div className="row">
+            <em id="detail">{request.detail}</em>
+          </div>
+          <br />
+          <br />
+          <br />
+          <div className="row center" id="request-btns">
+            {displayButtons(request.status, role, requestActions, showModal)}
+          </div>
+        </React.Fragment>
+      )
+        : (<div id="no-request-message">The request you are looking for does not exist</div>)
+      }
   </div>
 );
 
