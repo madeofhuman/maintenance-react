@@ -9,7 +9,7 @@
  */
 export const saveState = (state) => {
   const serialisedState = JSON.stringify(state);
-  window.localStorage.setItem('maintenance-react', serialisedState);
+  localStorage.setItem('maintenance-react', serialisedState);
 };
 
 /**
@@ -17,7 +17,7 @@ export const saveState = (state) => {
  * @returns {Object} the state
  */
 export const loadState = () => {
-  const state = window.localStorage.getItem('maintenance-react');
+  const state = localStorage.getItem('maintenance-react');
   const parsedState = state !== null && state !== undefined ? JSON.parse(state) : undefined;
   return parsedState;
 };
@@ -26,5 +26,5 @@ export const loadState = () => {
  * @description Clears the persisted state from localStorage
  */
 export const clearState = () => {
-  window.localStorage.removeItem('maintenance-react');
+  localStorage.removeItem('maintenance-react');
 };

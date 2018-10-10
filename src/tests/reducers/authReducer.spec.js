@@ -60,13 +60,8 @@ describe('Auth Reducer Test', () => {
   test('LOGOUT', () => {
     const action = {
       type: 'LOGOUT',
-      payload: null,
     };
-    const expectedState = {
-      authenticated: false,
-      token: undefined,
-      user: undefined,
-    };
+    const expectedState = undefined;
     expect(authReducer(undefined, action)).toEqual(expectedState);
   });
 });

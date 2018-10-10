@@ -19,12 +19,8 @@ const authReducer = (state = initialState, action) => {
       };
     case types.LOGOUT:
       clearState();
-      return {
-        ...state,
-        user: undefined,
-        token: undefined,
-        authenticated: false,
-      };
+      window.location.replace('/');
+      break;
     default:
       return state;
   }

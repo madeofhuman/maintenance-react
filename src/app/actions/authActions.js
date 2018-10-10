@@ -36,7 +36,9 @@ const authenticate = (userData, path) => async (dispatch) => {
   }
 };
 
+const logout = () => ({ type: types.LOGOUT });
+
 export default {
   authenticate,
-  logout: () => ({ type: types.LOGOUT }),
+  logout,
 };
