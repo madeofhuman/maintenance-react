@@ -25,63 +25,21 @@ const initialValues = {
 };
 
 describe('Request Form', () => {
-  beforeEach(() => {
-    fetch.resetMocks();
-  });
-  test('renders', () => {
+  test('renders a form', () => {
     store = mockStore({
       auth: {
         authenticated: true,
       },
     });
-    const wrapper = shallow(<RequestForm store={store} />);
+    const wrapper = shallow(<RequestForm />);
     expect(wrapper.exists()).toBe(true);
-  });
-  test('renders a form', () => {
-    const wrapper = mount(
-      <BrowserRouter>
-        <RequestForm store={store} />
-      </BrowserRouter>,
-    );
     expect(wrapper.find('form')).toHaveLength(1);
     expect(wrapper).toMatchSnapshot();
   });
   test('instantiates with initial values when called as an update form', () => {
-    const wrapper = shallow(<RequestForm initialValues={initialValues} />);
+    const wrapper = shallow(<RequestForm {...initialValues} />);
     expect(wrapper.find('#item')).toHaveLength(1);
+    expect(wrapper.find('#item').props().value).toEqual(initialValues.item);
     expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find("Input[name='item']").props().value).toEqual(initialValues.item);
-  });
-  test('when the form is submitted, the event is cancelled', () => {
-    const wrapper = shallow(
-      <RequestForm
-        initialValues={initialValues}
-        updateRequest={updateRequest}
-        getAllRequests={getAllRequests}
-      />,
-    );
-    let prevented = false;
-    wrapper.find('form').simulate('submit', {
-      preventDefault: () => {
-        prevented = true;
-      },
-    });
-    expect(prevented).toBe(true);
-    expect(wrapper).toMatchSnapshot();
-  });
-  test('calls the updateRequest method on request update', () => {
-    const wrapper = shallow(
-      <RequestForm
-        initialValues={initialValues}
-        updateRequest={updateRequest}
-        getAllRequests={getAllRequests}
-        createRequest={createRequest}
-      />,
-    );
-    wrapper.find('form').simulate('submit', {
-      preventDefault: () => jest.fn(),
-    });
-    expect(updateRequest).toHaveBeenCalled();
-    expect(createRequest).not.toHaveBeenCalled();
   });
 });

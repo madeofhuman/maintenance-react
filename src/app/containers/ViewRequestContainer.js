@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Modal from 'react-modal';
 import Navbar from '../components/NavbarComponent';
 import getAllRequests from '../actions/requestActions';
 import '../assets/css/request.css';
 import cloudGearSpanner from '../assets/img/cloud-gear-spanner.svg';
 import RequestCard from '../components/RequestCardComponent';
 import Loader from '../components/LoaderComponent';
-import Modal from '../components/ModalComponent';
-import RequestForm from '../components/RequestForm';
+import UpdateRequest from './UpdateRequestContainer';
 
 export class ViewRequest extends Component {
   constructor(props) {
@@ -19,10 +19,10 @@ export class ViewRequest extends Component {
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const { match, getRequest } = this.props;
     const { requestId } = match.params;
-    getRequest(requestId);
+    await getRequest(requestId);
   }
 
   showModal = () => {
@@ -38,9 +38,10 @@ export class ViewRequest extends Component {
   };
 
   deleteRequest = () => {
-    const { match, deleteRequest } = this.props;
+    const { match, deleteRequest, history } = this.props;
     const { requestId } = match.params;
     deleteRequest(requestId);
+    history.push('/');
   }
 
   approveRequest = () => {
@@ -63,13 +64,27 @@ export class ViewRequest extends Component {
 
   render() {
     const {
-      request, loading, user,
+      request, loading, user, history, match,
     } = this.props;
     const { show } = this.state;
+    if (loading) {
+      return <Loader />;
+    }
     return (
       <React.Fragment>
-        <Modal show={show} handleClose={this.hideModal}>
-          <RequestForm handleClose={this.hideModal} initialValues={request} />
+        <Modal
+          isOpen={show}
+          handleClose={this.hideModal}
+          ariaHideApp={false}
+          overlayClassName="modal-overlay"
+          className="modal-content"
+        >
+          <UpdateRequest
+            handleClose={this.hideModal}
+            initialValues={request}
+            history={history}
+            match={match}
+          />
         </Modal>
         <Navbar />
         <div className="body" style={{ backgroundImage: `url(${cloudGearSpanner})` }}>
@@ -90,7 +105,6 @@ export class ViewRequest extends Component {
               : <p className="white">Request does not exist</p> }
           </div>
         </div>
-        { loading ? <Loader /> : false }
       </React.Fragment>
     );
   }
@@ -106,16 +120,18 @@ ViewRequest.propTypes = {
   approveRequest: PropTypes.func.isRequired,
   disapproveRequest: PropTypes.func.isRequired,
   resolveRequest: PropTypes.func.isRequired,
+  history: PropTypes.shape({}).isRequired,
 };
 
-const matchStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   request: state.requests.request,
   match: ownProps.match,
   user: state.auth.user,
+  history: ownProps.history,
 });
 
-const matchDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = dispatch => bindActionCreators({
   getRequest: requestData => (getAllRequests.getSingleRequest(requestData)),
   deleteRequest: requestId => (getAllRequests.deleteRequest(requestId)),
   approveRequest: requestId => (getAllRequests.approveRequest(requestId)),
@@ -123,4 +139,4 @@ const matchDispatchToProps = dispatch => bindActionCreators({
   resolveRequest: requestId => (getAllRequests.resolveRequest(requestId)),
 }, dispatch);
 
-export default connect(matchStateToProps, matchDispatchToProps)(ViewRequest);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewRequest);
