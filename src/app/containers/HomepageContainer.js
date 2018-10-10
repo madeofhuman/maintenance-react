@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Modal from 'react-modal';
 import Navbar from '../components/NavbarComponent';
 import '../assets/css/home.css';
 import wrenchHammer from '../assets/img/wrench-hammer.svg';
 import backgroundImage from '../assets/img/gears.svg';
-import Modal from '../components/ModalComponent';
 import LoginForm from './LoginContainer';
 import SignupForm from './SignupContainer';
 
@@ -50,8 +50,14 @@ export class Homepage extends Component {
     const { history } = this.props;
     return (
       <React.Fragment>
-        <Modal show={show} handleClose={this.hideModal}>
-          { modalContent === 'sign-in' ? <LoginForm handleClose={this.hideModal} history={history} /> : <SignupForm handleClose={this.hideModal} /> }
+        <Modal
+          isOpen={show}
+          handleClose={this.hideModal}
+          ariaHideApp={false}
+          overlayClassName="modal-overlay"
+          className="modal-content"
+        >
+          { modalContent === 'sign-in' ? <LoginForm handleClose={this.hideModal} history={history} /> : <SignupForm handleClose={this.hideModal} history={history} /> }
         </Modal>
         <Navbar />
         <div className="">
@@ -93,7 +99,7 @@ export class Homepage extends Component {
 }
 
 Homepage.defaultProps = {
-  role: null,
+  role: undefined,
 };
 
 Homepage.propTypes = {
@@ -105,7 +111,7 @@ Homepage.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
   authenticated: state.auth.authenticated,
   history: ownProps.history,
-  role: state.auth.user !== null ? state.auth.user.role : null,
+  role: state.auth.user !== undefined ? state.auth.user.role : undefined,
 });
 
 export default connect(mapStateToProps, null)(Homepage);

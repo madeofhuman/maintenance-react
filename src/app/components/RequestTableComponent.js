@@ -24,7 +24,7 @@ const RequestTable = ({ requests, message }) => {
           />)
           : (
             <div className="wrapper white">
-              <p>{message}</p>
+              <p>You have no requests at the moment</p>
             </div>)
           }
       </div>

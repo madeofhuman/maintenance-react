@@ -3,16 +3,13 @@ import { clearState } from '../store/persistState';
 
 const initialState = {
   authenticated: false,
-  token: null,
-  user: null,
+  token: undefined,
+  user: undefined,
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGNUP:
-      return {
-        ...state,
-      };
     case types.LOGIN:
       return {
         ...state,
@@ -24,8 +21,8 @@ const authReducer = (state = initialState, action) => {
       clearState();
       return {
         ...state,
-        user: null,
-        token: null,
+        user: undefined,
+        token: undefined,
         authenticated: false,
       };
     default:

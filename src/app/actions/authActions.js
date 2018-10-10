@@ -22,6 +22,9 @@ const authenticate = (userData, path) => async (dispatch) => {
         dispatch({ type: types.LOGIN, payload: data });
         dispatch({ type: types.COMPLETE });
         break;
+      case 400:
+      case 409:
+      case 500:
       default:
         dispatch({ type: types.PROCESS_ERROR, payload: data });
         dispatch({ type: types.COMPLETE });

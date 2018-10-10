@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Modal from 'react-modal';
 import Navbar from '../components/NavbarComponent';
-import getAllRequests from '../actions/requestActions';
+import requestActions from '../actions/requestActions';
 import Loader from '../components/LoaderComponent';
 import RequestTable from '../components/RequestTableComponent';
 import spannerScrewdriver from '../assets/img/spanner-screwdriver.svg';
 import Input from '../components/InputComponent';
-import Modal from '../components/ModalComponent';
 import '../assets/css/dashboard.css';
-import RequestForm from '../components/RequestForm';
+import NewRequest from './NewRequestContainer';
 
 export class Dashboard extends Component {
   constructor(props) {
@@ -50,8 +50,17 @@ export class Dashboard extends Component {
     } = this.props;
     return (
       <React.Fragment>
-        <Modal show={show} handleClose={this.hideModal}>
-          <RequestForm handleClose={this.hideModal} />
+        <Modal
+          isOpen={show}
+          handleClose={this.hideModal}
+          ariaHideApp={false}
+          overlayClassName="modal-overlay"
+          className="modal-content"
+        >
+          <NewRequest
+            handleClose={this.hideModal}
+            handleSubmit={this.handleSubmit}
+          />
         </Modal>
         <Navbar profileIconVisibility="" />
         <div className="body" style={{ backgroundImage: `url(${spannerScrewdriver})` }}>
@@ -75,7 +84,22 @@ export class Dashboard extends Component {
             </div>
             <br />
             <br />
-            {requests ? <RequestTable requests={requests} message={message} /> : false}
+            {requests ? (
+              <RequestTable
+                requests={requests}
+                message={message}
+              />)
+              : (
+                <div
+                  className="wrapper white"
+                >
+                  <p>You have no requests at the moment.
+                    Do you have anything that needs fixing?
+                    We love to fix stuff.
+                  </p>
+                </div>
+              )
+            }
           </div>
           <br />
           <div className="divider" />
@@ -110,7 +134,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getRequests: () => (getAllRequests.getAllRequests()),
+  getRequests: () => (requestActions.getAllRequests()),
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
-  type, name, value, handleChange, label, id, isRequired, className, handleClick,
+  type, name, handleChange, label, id, isRequired, className, handleClick, value,
 }) => (
   <React.Fragment>
     <label htmlFor={name}>{label}</label>

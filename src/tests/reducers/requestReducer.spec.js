@@ -11,7 +11,7 @@ describe('Request Reducer Test', () => {
     };
     const expectedState = {
       requests: [],
-      request: {},
+      request: undefined,
       message: 'You have no requests at the moment',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
@@ -21,13 +21,13 @@ describe('Request Reducer Test', () => {
       type: 'GET_SINGLE_REQUEST',
       payload: {
         request: {},
-        message: 'You have no requests at the moment',
+        message: 'You have no request at the moment',
       },
     };
     const expectedState = {
-      requests: [],
+      requests: undefined,
       request: {},
-      message: 'You have no requests at the moment',
+      message: 'You have no request at the moment',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });
@@ -41,7 +41,7 @@ describe('Request Reducer Test', () => {
     };
     const expectedState = {
       requests: [],
-      request: {},
+      request: undefined,
       message: 'There are no requests at the moment',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
@@ -56,18 +56,18 @@ describe('Request Reducer Test', () => {
           model: 'N/A',
           detail: 'It does not turn on',
         },
-        message: '',
+        message: 'Request created successfully',
       },
     };
     const expectedState = {
-      requests: [],
+      requests: undefined,
       request: {
         type: 'repair',
         item: 'Phillips Iron',
         model: 'N/A',
         detail: 'It does not turn on',
       },
-      message: '',
+      message: 'Request created successfully',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });
@@ -81,18 +81,18 @@ describe('Request Reducer Test', () => {
           model: 'N/A',
           detail: 'It does not turn on',
         },
-        message: '',
+        message: 'Request updated successfully',
       },
     };
     const expectedState = {
-      requests: [],
+      requests: undefined,
       request: {
         type: 'repair',
         item: 'Phillips Iron',
         model: 'N/A',
         detail: 'It does not turn on',
       },
-      message: '',
+      message: 'Request updated successfully',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });
@@ -106,18 +106,18 @@ describe('Request Reducer Test', () => {
           model: 'N/A',
           detail: 'It does not turn on',
         },
-        message: '',
+        message: 'Request successfully approved',
       },
     };
     const expectedState = {
-      requests: [],
+      requests: undefined,
       request: {
         type: 'repair',
         item: 'Phillips Iron',
         model: 'N/A',
         detail: 'It does not turn on',
       },
-      message: '',
+      message: 'Request successfully approved',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });
@@ -131,18 +131,18 @@ describe('Request Reducer Test', () => {
           model: 'N/A',
           detail: 'It does not turn on',
         },
-        message: '',
+        message: 'Request successfully disapproved',
       },
     };
     const expectedState = {
-      requests: [],
+      requests: undefined,
       request: {
         type: 'repair',
         item: 'Phillips Iron',
         model: 'N/A',
         detail: 'It does not turn on',
       },
-      message: '',
+      message: 'Request successfully disapproved',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });
@@ -156,18 +156,18 @@ describe('Request Reducer Test', () => {
           model: 'N/A',
           detail: 'It does not turn on',
         },
-        message: '',
+        message: 'Request successfully resolved',
       },
     };
     const expectedState = {
-      requests: [],
+      requests: undefined,
       request: {
         type: 'repair',
         item: 'Phillips Iron',
         model: 'N/A',
         detail: 'It does not turn on',
       },
-      message: '',
+      message: 'Request successfully resolved',
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });
@@ -176,9 +176,9 @@ describe('Request Reducer Test', () => {
       type: 'DELETE_REQUEST',
     };
     const expectedState = {
-      requests: [],
-      request: {},
-      message: '',
+      requests: undefined,
+      request: undefined,
+      message: undefined,
     };
     expect(requestReducer(undefined, action)).toEqual(expectedState);
   });

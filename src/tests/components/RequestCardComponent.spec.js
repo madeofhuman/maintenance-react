@@ -171,4 +171,20 @@ describe('RequestCard Component', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
     expect(wrapper.find('input')).toHaveLength(0);
   });
+  test('displays error message when request is unavailable due to improper id supplied', () => {
+    const wrapper = mount(
+      <BrowserRouter>
+        <Switch>
+          <RequestCard
+            role="user"
+            requestActions={requestActions}
+          />
+        </Switch>
+      </BrowserRouter>,
+    );
+    expect(wrapper.exists()).toBe(true);
+    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.find('input')).toHaveLength(0);
+    expect(wrapper.find('#no-request-message').exists()).toBe(true);
+  });
 });

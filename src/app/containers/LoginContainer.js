@@ -21,14 +21,14 @@ export class LoginForm extends Component {
     const {
       user, history, error, message, clearMessages,
     } = this.props;
-    if (user === null && error === null && message === null) {
+    if (user === undefined && error === undefined && message === undefined) {
       return true;
     }
-    if (user === null && error !== null && message !== null) {
+    if (user === undefined && error !== undefined && message !== undefined) {
       toastr.error(message);
       clearMessages();
     }
-    if (user !== null && error === null && message !== null) {
+    if (user !== undefined && error === undefined && message !== undefined) {
       if (user.role !== 'user') {
         history.push('/admin');
         toastr.success(message);
@@ -105,9 +105,9 @@ export class LoginForm extends Component {
 }
 
 LoginForm.defaultProps = {
-  user: null,
-  error: null,
-  message: null,
+  user: undefined,
+  error: undefined,
+  message: undefined,
 };
 
 LoginForm.propTypes = {

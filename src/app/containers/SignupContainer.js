@@ -22,18 +22,25 @@ export class SignupForm extends Component {
 
   componentDidUpdate() {
     const {
-      error, message, clearMessages,
+      error, message, clearMessages, user, history,
     } = this.props;
-    if (error === null && message === null) {
+    if (user === undefined && error === undefined && message === undefined) {
       return true;
     }
-    if (error !== null && message !== null) {
+    if (user === undefined && error !== undefined && message !== undefined) {
       toastr.error(message);
       clearMessages();
     }
-    if (error === null && message !== null) {
-      toastr.success(message);
-      clearMessages();
+    if (user !== undefined && error === undefined && message !== undefined) {
+      if (user.role !== 'user') {
+        history.push('/admin');
+        toastr.success(message);
+        clearMessages();
+      } else {
+        history.push('/dashboard');
+        toastr.success(message);
+        clearMessages();
+      }
     }
   }
 
@@ -134,14 +141,17 @@ export class SignupForm extends Component {
 }
 
 SignupForm.defaultProps = {
-  error: null,
-  message: null,
+  user: undefined,
+  error: undefined,
+  message: undefined,
 };
 
 SignupForm.propTypes = {
   handleClose: PropTypes.func.isRequired,
+  history: PropTypes.shape({}).isRequired,
   signup: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  user: PropTypes.shape({}),
   message: PropTypes.string,
   error: PropTypes.string,
   clearMessages: PropTypes.func.isRequired,
@@ -150,6 +160,7 @@ SignupForm.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   history: ownProps.history,
+  user: state.auth.user,
   message: state.common.message,
   error: state.common.error,
 });

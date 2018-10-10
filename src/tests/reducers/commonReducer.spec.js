@@ -6,9 +6,9 @@ describe('Common Reducer Test', () => {
       type: 'LOADING',
     };
     const expectedState = {
-      error: null,
+      error: undefined,
       loading: true,
-      message: null,
+      message: undefined,
     };
     expect(commonReducer(undefined, action)).toEqual(expectedState);
   });
@@ -17,9 +17,9 @@ describe('Common Reducer Test', () => {
       type: 'COMPLETE',
     };
     const expectedState = {
-      error: null,
+      error: undefined,
       loading: false,
-      message: null,
+      message: undefined,
     };
     expect(commonReducer(undefined, action)).toEqual(expectedState);
   });
@@ -42,14 +42,14 @@ describe('Common Reducer Test', () => {
     const action = {
       type: 'NETWORK_ERROR',
       payload: {
-        error: 'network error',
-        message: 'your network connection is awful',
+        error: 'Network error',
+        message: 'Network error',
       },
     };
     const expectedState = {
-      error: 'network error',
+      error: 'Network error',
       loading: false,
-      message: 'your network connection is awful',
+      message: 'Network error',
     };
     expect(commonReducer(undefined, action)).toEqual(expectedState);
   });
@@ -58,9 +58,9 @@ describe('Common Reducer Test', () => {
       type: 'CLEAR_MESSAGES',
     };
     const expectedState = {
-      error: null,
+      error: undefined,
       loading: false,
-      message: null,
+      message: undefined,
     };
     expect(commonReducer(undefined, action)).toEqual(expectedState);
   });
@@ -72,7 +72,7 @@ describe('Common Reducer Test', () => {
       },
     };
     const expectedState = {
-      error: null,
+      error: undefined,
       loading: false,
       message: 'You have signed up successfully, you can now log in',
     };
@@ -86,7 +86,7 @@ describe('Common Reducer Test', () => {
       },
     };
     const expectedState = {
-      error: null,
+      error: undefined,
       loading: false,
       message: 'You have successfully logged in',
     };
