@@ -9,12 +9,20 @@ import backgroundImage from '../assets/img/gears.svg';
 import LoginForm from './LoginContainer';
 import SignupForm from './SignupContainer';
 
+/**
+ * Manages the state and actions of the Homepage Component
+ * @class
+ * @extends React.Component
+ */
 export class Homepage extends Component {
   state = {
     show: false,
     modalContent: '',
   };
 
+  /**
+   * Toggles the modal state to open
+   */
   showModal = (event) => {
     event.preventDefault();
     this.setState({
@@ -23,6 +31,9 @@ export class Homepage extends Component {
     });
   };
 
+  /**
+   * Toggles the modal state to closed
+   */
   hideModal = () => {
     this.setState({
       show: false,
@@ -30,6 +41,10 @@ export class Homepage extends Component {
     });
   };
 
+  /**
+   * checks if user if logged in and routes them to their dashboard
+   * url path based on their role or remains on the landing page.
+   */
   componentDidMount = () => {
     const { authenticated, history, role } = this.props;
     if (authenticated) {
@@ -45,6 +60,9 @@ export class Homepage extends Component {
     }
   }
 
+  /**
+   * Renders the Homepage component on a node in the DOM
+   */
   render() {
     const { show, modalContent } = this.state;
     const { history } = this.props;
@@ -108,6 +126,11 @@ Homepage.propTypes = {
   role: PropTypes.string,
 };
 
+/**
+ * Add specified items in the global store as props to the component
+ * @param {object} state the global store
+ * @param {object} ownProps the component specific props
+ */
 const mapStateToProps = (state, ownProps) => ({
   authenticated: state.auth.authenticated,
   history: ownProps.history,

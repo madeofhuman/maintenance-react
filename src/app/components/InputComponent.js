@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Renders the Input component on a node in the DOM
+ * @returns {object} the Input component to render
+ */
 const Input = ({
   type, name, handleChange, label, id, isRequired, className, handleClick, value,
 }) => (

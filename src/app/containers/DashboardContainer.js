@@ -12,6 +12,11 @@ import Input from '../components/InputComponent';
 import '../assets/css/dashboard.css';
 import NewRequest from './NewRequestContainer';
 
+/**
+ * Manages the state and actions of the Dashboard Component
+ * @class
+ * @extends React.Component
+ */
 export class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +25,11 @@ export class Dashboard extends Component {
     };
   }
 
+  /**
+   * routes the user and admin to their dashboard url path
+   * and calls the getRequest action dispatcher to fetch the
+   * appropriate requests.
+   */
   componentDidMount = () => {
     const { getRequests, history, user } = this.props;
     if (user.role !== 'admin') {
@@ -31,18 +41,27 @@ export class Dashboard extends Component {
     getRequests();
   }
 
+  /**
+   * Toggles the modal state to open
+   */
   showModal = () => {
     this.setState({
       show: true,
     });
   };
 
+  /**
+   * Toggles the modal state to closed
+   */
   hideModal = () => {
     this.setState({
       show: false,
     });
   };
 
+  /**
+   * Renders the Dashboard component on a node in the DOM
+   */
   render() {
     const { show } = this.state;
     const {
@@ -124,7 +143,12 @@ Dashboard.propTypes = {
   getRequests: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+/**
+ * Add specified items in the global store as props to the component
+ * @param {object} state the global store
+ * @param {object} ownProps the component specific props
+ */
+export const mapStateToProps = (state, ownProps) => ({
   authenticated: state.auth.authenticated,
   loading: state.common.loading,
   history: ownProps.history,
@@ -133,7 +157,11 @@ const mapStateToProps = (state, ownProps) => ({
   user: state.auth.user,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+/**
+ * Add specified action creators as props to the component
+ * @param {function} dispatch - dispatch the specified action.
+ */
+export const mapDispatchToProps = dispatch => bindActionCreators({
   getRequests: () => (requestActions.getAllRequests()),
 }, dispatch);
 

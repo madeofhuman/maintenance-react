@@ -11,6 +11,11 @@ import RequestCard from '../components/RequestCardComponent';
 import Loader from '../components/LoaderComponent';
 import UpdateRequest from './UpdateRequestContainer';
 
+/**
+ * Manages the state and actions of the View Request Component
+ * @class
+ * @extends React.Component
+ */
 export class ViewRequest extends Component {
   constructor(props) {
     super(props);
@@ -19,24 +24,37 @@ export class ViewRequest extends Component {
     };
   }
 
+  /**
+   * Fetches the request when the component mounts
+   */
   componentDidMount = async () => {
     const { match, getRequest } = this.props;
     const { requestId } = match.params;
     await getRequest(requestId);
   }
 
+  /**
+   * Mounts the modal with the edit request form
+   */
   showModal = () => {
     this.setState({
       show: true,
     });
   };
 
+  /**
+   * Unmounts the modal with the edit request form
+   */
   hideModal = () => {
     this.setState({
       show: false,
     });
   };
 
+  /**
+   * Delete the request the id of which is gotten from the url param
+   * and redirect to the dashboard
+   */
   deleteRequest = () => {
     const { match, deleteRequest, history } = this.props;
     const { requestId } = match.params;
@@ -44,24 +62,36 @@ export class ViewRequest extends Component {
     history.push('/');
   }
 
+  /**
+   * Approve the request the id of which is gotten from the url param
+   */
   approveRequest = () => {
     const { match, approveRequest } = this.props;
     const { requestId } = match.params;
     approveRequest(requestId);
   }
 
+  /**
+   * Disapprove the request the id of which is gotten from the url param
+   */
   disapproveRequest = () => {
     const { match, disapproveRequest } = this.props;
     const { requestId } = match.params;
     disapproveRequest(requestId);
   }
 
+  /**
+   * Resolve the request the id of which is gotten from the url param
+   */
   resolveRequest = () => {
     const { match, resolveRequest } = this.props;
     const { requestId } = match.params;
     resolveRequest(requestId);
   }
 
+  /**
+   * Renders the View Request component on a node in the DOM
+   */
   render() {
     const {
       request, loading, user, history, match,

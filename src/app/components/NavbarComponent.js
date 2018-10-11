@@ -7,12 +7,21 @@ import Logo from './LogoComponent';
 import ProfileIcon from './ProfileIcon';
 import authenticate from '../actions/authActions';
 
+/**
+ * The Navbar component
+ * @class
+ * @extends React.Component
+ */
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
+  /**
+  * Renders the Navbar component on a node in the DOM
+  * @returns {object} the Navbar component to render
+  */
   render() {
     const { logout, authenticated } = this.props;
     return (

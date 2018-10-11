@@ -2,6 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './InputComponent';
 
+/**
+ * Dynamically display action buttons on the request view page
+ * based on the current user's role and request status
+ * @param {string} requestStatus - the status of the request
+ * @param {string} userRole - the role of the current user
+ * @param {object} requestActions - contains the actions performable on a request
+ * @param {function} showModal - a function to mount the modal component with the
+ * update request form
+ */
 const displayButtons = (requestStatus, userRole, requestActions, showModal) => {
   if (userRole === 'admin') {
     switch (requestStatus) {
@@ -93,6 +102,14 @@ const displayButtons = (requestStatus, userRole, requestActions, showModal) => {
   }
 };
 
+/**
+ * Renders the RequestCard component on a node in the DOM
+ * @param {object} request - the request to display in the card
+ * @param {string} request - the role of the current user
+ * @param {object} requestActions - contains the actions performable on a request
+ * @param {function} showModal - a function to mount the modal component with the
+ * @returns {object} the RequestCard component to render
+ */
 const RequestCard = ({
   request, role, requestActions, showModal,
 }) => (

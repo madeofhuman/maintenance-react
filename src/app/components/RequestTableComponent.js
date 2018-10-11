@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { TablePagination } from 'react-pagination-table';
 
+/**
+ * Renders the RequestTable component on a node in the DOM
+ * @param {array} requests - an array of requests to render in the table
+ * @returns {object} the RequestTable component to render
+ */
 const RequestTable = ({ requests, message }) => {
   const parsedRequests = requests.map((request, i) => ({
     ...request,
@@ -24,7 +29,7 @@ const RequestTable = ({ requests, message }) => {
           />)
           : (
             <div className="wrapper white">
-              <p>You have no requests at the moment</p>
+              <p>{message}</p>
             </div>)
           }
       </div>

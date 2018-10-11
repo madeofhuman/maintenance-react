@@ -2,6 +2,9 @@ import React from 'react';
 import Navbar from '../components/NavbarComponent';
 import '../assets/css/404.css';
 
+/**
+ * Renders the 404 component on a node in the DOM
+ */
 export const NotFound = () => (
   <React.Fragment>
     <div className="wrapper">

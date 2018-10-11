@@ -2,6 +2,15 @@ import types from './commonTypes';
 
 const baseUrl = 'https://maintain-r.herokuapp.com/api/v1/';
 
+/**
+ * An action creator that dispatches the SIGNUP or LOGIN action
+ * depending on the status of the API response gotten after the
+ * API call has been made.
+ * @param {object} userData - the user data from the form to POST
+ * or PUT to the API
+ * @param {string} path - the url endpoint for the request. Is either
+ * 'signup' or 'login'
+ */
 const authenticate = (userData, path) => async (dispatch) => {
   dispatch({ type: types.LOADING });
   try {
@@ -36,6 +45,9 @@ const authenticate = (userData, path) => async (dispatch) => {
   }
 };
 
+/**
+ * An action creator that dispatches the LOGOUT action
+ */
 const logout = () => ({ type: types.LOGOUT });
 
 export default {

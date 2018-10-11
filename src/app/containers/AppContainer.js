@@ -8,6 +8,9 @@ import ViewRequest from './ViewRequestContainer';
 import store from '../store/store';
 import PrivateRoute from '../components/PrivateRouteComponent';
 
+/**
+ * Renders the App component on a node in the DOM
+ */
 export const App = () => (
   <Provider store={store}>
     <BrowserRouter>

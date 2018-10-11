@@ -6,7 +6,11 @@ import toastr from 'toastr';
 import RequestForm from '../components/RequestForm';
 import requestActions from '../actions/requestActions';
 
-
+/**
+ * Manages the state and actions of the New Request Component
+ * @class
+ * @extends React.Component
+ */
 export class NewRequest extends Component {
   constructor(props) {
     super(props);
@@ -18,12 +22,20 @@ export class NewRequest extends Component {
     };
   }
 
+  /**
+   * Updates the value of the item in the form state with the value of their bound
+   * DOM elements when the DOM elements change
+   */
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  /**
+   * Validates the user input and calls the createRequest action dispatcher
+   * to create the request if the input is valid, or toast an error otherwise.
+   */
   handleSubmit = (event) => {
     event.preventDefault();
     const {
@@ -43,6 +55,9 @@ export class NewRequest extends Component {
     getAllRequests();
   }
 
+  /**
+   * Renders the New Request Form component on a node in the DOM
+   */
   render() {
     const { handleClose } = this.props;
     return (
@@ -66,10 +81,19 @@ NewRequest.propTypes = {
   handleClose: PropTypes.func.isRequired,
 };
 
+/**
+ * Add specified items in the global store as props to the component
+ * @param {object} state the global store
+ * @param {object} ownProps the component specific props
+ */
 export const mapStateToProps = (state, ownProps) => ({
   history: ownProps.history,
 });
 
+/**
+ * Add specified action creators as props to the component
+ * @param {function} dispatch - dispatch the specified action.
+ */
 export const mapDispatchToProps = dispatch => bindActionCreators({
   createRequest: requestData => (requestActions.createRequest(requestData)),
   getAllRequests: () => (requestActions.getAllRequests()),

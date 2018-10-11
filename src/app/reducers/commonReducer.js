@@ -1,11 +1,17 @@
 import types from '../actions/commonTypes';
 
+/**
+ * The initial state of the common reducer
+ */
 const initialState = {
   loading: false,
   error: undefined,
   message: undefined,
 };
 
+/**
+ * Handles the common actions
+ */
 const commonReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOADING:

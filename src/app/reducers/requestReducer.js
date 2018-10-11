@@ -1,11 +1,17 @@
 import types from '../actions/commonTypes';
 
+/**
+ * The initial state of the requests reducer
+ */
 const initialState = {
   requests: undefined,
   request: undefined,
   message: undefined,
 };
 
+/**
+ * Handles the request actions
+ */
 const requestReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_ALL_REQUESTS:

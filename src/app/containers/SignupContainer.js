@@ -7,7 +7,13 @@ import Input from '../components/InputComponent';
 import authActions from '../actions/authActions';
 import commonActions from '../actions/commonActions';
 import Loader from '../components/LoaderComponent';
+import utils from '../assets/js/utils';
 
+/**
+ * Manages the state and actions of the Signup Form Component
+ * @class
+ * @extends React.Component
+ */
 export class SignupForm extends Component {
   constructor(props) {
     super(props);
@@ -20,51 +26,41 @@ export class SignupForm extends Component {
     };
   }
 
-  componentDidUpdate() {
-    const {
-      error, message, clearMessages, user, history,
-    } = this.props;
-    if (user === undefined && error === undefined && message === undefined) {
-      return true;
-    }
-    if (user === undefined && error !== undefined && message !== undefined) {
-      toastr.error(message);
-      clearMessages();
-    }
-    if (user !== undefined && error === undefined && message !== undefined) {
-      if (user.role !== 'user') {
-        history.push('/admin');
-        toastr.success(message);
-        clearMessages();
-      } else {
-        history.push('/dashboard');
-        toastr.success(message);
-        clearMessages();
-      }
-    }
-  }
-
+  /**
+   * Updates the value of the item in the form state with the value of their bound
+   * DOM elements when the DOM elements change
+   */
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
 
-  handleSubmit = (event) => {
+  /**
+   * Calls the signup action creator to sign the user up,
+   * and redirects to their dashboard on successful signup
+   * or toasts an error otherwise
+   */
+  handleSubmit = async (event) => {
     event.preventDefault();
     const {
       firstName, lastName, email, password, confirmPassword,
     } = this.state;
     const { signup } = this.props;
-    toastr.options.preventDuplicates = true;
     if (password !== confirmPassword) return toastr.error('passwords don\'t match');
-    const user = {
+    const userDetail = {
       firstName, lastName, email, password,
     };
-    return signup(user, 'signup');
+    await signup(userDetail, 'signup');
+    const {
+      user, history, error, message, clearMessages,
+    } = this.props;
+    utils.handleLogin(user, history, error, message, clearMessages);
   };
 
-
+  /**
+   * Renders the Signup Form component on a node in the DOM
+   */
   render() {
     const {
       firstName, lastName, email, password, confirmPassword,
@@ -157,6 +153,11 @@ SignupForm.propTypes = {
   clearMessages: PropTypes.func.isRequired,
 };
 
+/**
+ * Add specified items in the global store as props to the component
+ * @param {object} state the global store
+ * @param {object} ownProps the component specific props
+ */
 const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   history: ownProps.history,
@@ -165,6 +166,10 @@ const mapStateToProps = (state, ownProps) => ({
   error: state.common.error,
 });
 
+/**
+ * Add specified action creators as props to the component
+ * @param {function} dispatch - dispatch the specified action.
+ */
 const mapDispatchToProps = dispatch => bindActionCreators({
   signup: (user, route) => (authActions.authenticate(user, route)),
   clearMessages: () => (commonActions.clearMessages()),
