@@ -3,6 +3,24 @@ import PropTypes from 'prop-types';
 import Input from './InputComponent';
 import '../assets/css/new.css';
 
+/**
+ * Renders the RequestForm component on a node in the DOM
+ * @param {number} id - the id property of the request to display.
+ * Only applies if the form is called as an update form
+ * @param {string} type - the type property of the request to display.
+ * Only applies if the form is called as an update form
+ * @param {string} item - the item property of the request to display.
+ * Only applies if the form is called as an update form
+ * @param {string} model - the model property of the request to display.
+ * Only applies if the form is called as an update form
+ * @param {string} detail - the detail property of the request to display.
+ * Only applies if the form is called as an update form
+ * @param {function} handleSubmit - this is to be called when a submit event
+ * happens to the form
+ * @param {function} handleChange - this is to be called when a change event
+ * happens to an editable element of the form
+ * @returns {object} the RequestForm component to render
+ */
 export const RequestForm = ({
   id, type, item, model, detail, handleSubmit, handleClose, handleChange,
 }) => (

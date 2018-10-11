@@ -1,6 +1,11 @@
 import toastr from 'toastr';
 import types from './commonTypes';
 
+/**
+ * An action creator that performs an API call to retrieve
+ * all the user's requests and dispatches the GET_ALL_REQUESTS
+ * action upon successful retrieval.
+ */
 const getAllRequests = () => async (dispatch, getState) => {
   const state = getState();
   const { token, user } = state.auth;
@@ -38,6 +43,12 @@ const getAllRequests = () => async (dispatch, getState) => {
   }
 };
 
+/**
+ * An action creator that performs an API call to retrieve
+ * a specified request of the user and dispatches the
+ * GET_SINGLE_REQUEST action upon successful retrieval.
+ * @param {number} requestId - the id of the request to fetch
+ */
 const getSingleRequest = requestId => async (dispatch, getState) => {
   const state = getState();
   const { token, user } = state.auth;
@@ -76,6 +87,13 @@ const getSingleRequest = requestId => async (dispatch, getState) => {
   }
 };
 
+/**
+ * An action creator that performs an API call to create a
+ * request and dispatches the CREATE_REQUEST action upon
+ * successful creation.
+ * @param {object} requestData - the request data from the
+ * form to create.
+ */
 const createRequest = requestData => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -99,7 +117,13 @@ const createRequest = requestData => async (dispatch, getState) => {
         break;
       case 400:
       default:
-        dispatch({ type: types.PROCESS_ERROR, payload: { error: data.error, message: data.message } });
+        dispatch({
+          type: types.PROCESS_ERROR,
+          payload: {
+            error: data.error,
+            message: data.message,
+          },
+        });
         dispatch({ type: types.COMPLETE });
         toastr.error(data.message);
         break;
@@ -110,6 +134,12 @@ const createRequest = requestData => async (dispatch, getState) => {
   }
 };
 
+/**
+ * An action creator that performs an API call to delete a
+ * specified request of the user and dispatches the
+ * DELETE_REQUEST action upon successful deletion.
+ * @param {number} requestId - the id of the request to delete
+ */
 const deleteRequest = requestId => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -143,6 +173,14 @@ const deleteRequest = requestId => async (dispatch, getState) => {
   }
 };
 
+/**
+ * An action creator that performs an API call to update a
+ * request and dispatches the UPDATE_REQUEST action upon
+ * successful update.
+ * @param {object} requestData - the request data from the
+ * form to update.
+ * @param {number} requestId - the id of the request to update
+ */
 const updateRequest = (requestData, requestId) => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -177,6 +215,12 @@ const updateRequest = (requestData, requestId) => async (dispatch, getState) => 
   }
 };
 
+/**
+ * An action creator that performs an API call to approve a
+ * specified request of the user and dispatches the
+ * APPROVE_REQUEST action upon successful approval.
+ * @param {number} requestId - the id of the request to approve
+ */
 const approveRequest = requestId => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -210,6 +254,12 @@ const approveRequest = requestId => async (dispatch, getState) => {
   }
 };
 
+/**
+ * An action creator that performs an API call to disapprove a
+ * specified request of the user and dispatches the
+ * DISAPPROVE_REQUEST action upon successful disapproval.
+ * @param {number} requestId - the id of the request to disapprove
+ */
 const disapproveRequest = requestId => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;
@@ -243,6 +293,12 @@ const disapproveRequest = requestId => async (dispatch, getState) => {
   }
 };
 
+/**
+ * An action creator that performs an API call to resolve a
+ * specified request of the user and dispatches the
+ * RESOLVE_REQUEST action upon successful resolution.
+ * @param {number} requestId - the id of the request to resolve
+ */
 const resolveRequest = requestId => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.auth;

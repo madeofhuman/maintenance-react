@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import toastr from 'toastr';
 import Input from '../components/InputComponent';
 import authActions from '../actions/authActions';
 import commonActions from '../actions/commonActions';
 import Loader from '../components/LoaderComponent';
+import utils from '../assets/js/utils';
 
+/**
+ * Manages the state and actions of the Login Form Component
+ * @class
+ * @extends React.Component
+ */
 export class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -17,48 +22,40 @@ export class LoginForm extends Component {
     };
   }
 
-  componentDidUpdate() {
-    const {
-      user, history, error, message, clearMessages,
-    } = this.props;
-    if (user === undefined && error === undefined && message === undefined) {
-      return true;
-    }
-    if (user === undefined && error !== undefined && message !== undefined) {
-      toastr.error(message);
-      clearMessages();
-    }
-    if (user !== undefined && error === undefined && message !== undefined) {
-      if (user.role !== 'user') {
-        history.push('/admin');
-        toastr.success(message);
-        clearMessages();
-      } else {
-        history.push('/dashboard');
-        toastr.success(message);
-        clearMessages();
-      }
-    }
-  }
-
-  handleSubmit = (event) => {
+  /**
+   * Calls the login action creator to log the user in,
+   * and redirects to their dashboard on successful login
+   * or toasts an error otherwise
+   */
+  handleSubmit = async (event) => {
     event.preventDefault();
     const {
       email, password,
     } = this.state;
     const { login } = this.props;
-    const user = {
+    const userDetail = {
       email, password,
     };
-    return login(user, 'login');
+    await login(userDetail, 'login');
+    const {
+      user, history, error, message, clearMessages,
+    } = this.props;
+    utils.handleLogin(user, history, error, message, clearMessages);
   };
 
+  /**
+   * Updates the value of the item in the form state with the value of their bound
+   * DOM elements when the DOM elements change
+   */
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
 
+  /**
+   * Renders the Login Form component on a node in the DOM
+   */
   render() {
     const {
       email, password,
@@ -121,6 +118,11 @@ LoginForm.propTypes = {
   clearMessages: PropTypes.func.isRequired,
 };
 
+/**
+ * Add specified items in the global store as props to the component
+ * @param {object} state the global store
+ * @param {object} ownProps the component specific props
+ */
 const mapStateToProps = (state, ownProps) => ({
   loading: state.common.loading,
   history: ownProps.history,
@@ -129,6 +131,10 @@ const mapStateToProps = (state, ownProps) => ({
   error: state.common.error,
 });
 
+/**
+ * Add specified action creators as props to the component
+ * @param {function} dispatch - dispatch the specified action.
+ */
 const mapDispatchToProps = dispatch => bindActionCreators({
   login: (user, route) => (authActions.authenticate(user, route)),
   clearMessages: () => (commonActions.clearMessages()),

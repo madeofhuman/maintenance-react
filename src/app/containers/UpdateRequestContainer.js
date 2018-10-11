@@ -7,7 +7,11 @@ import RequestForm from '../components/RequestForm';
 import requestActions from '../actions/requestActions';
 import Loader from '../components/LoaderComponent';
 
-
+/**
+ * Manages the state and actions of the Update Request Component
+ * @class
+ * @extends React.Component
+ */
 export class UpdateRequest extends Component {
   constructor(props) {
     super(props);
@@ -21,12 +25,20 @@ export class UpdateRequest extends Component {
     };
   }
 
+  /**
+   * Updates the value of the item in the form state with the value of their bound
+   * DOM elements when the DOM elements change
+   */
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  /**
+   * Validates the user input and calls the updateRequest action dispatcher
+   * to update the request if the input is valid, or toast an error otherwise.
+   */
   handleSubmit = (event) => {
     event.preventDefault();
     const {
@@ -55,6 +67,9 @@ export class UpdateRequest extends Component {
     }
   }
 
+  /**
+   * Renders the Update Request Form component on a node in the DOM
+   */
   render() {
     const { handleClose, loading } = this.props;
     const {
@@ -93,11 +108,20 @@ UpdateRequest.propTypes = {
   match: PropTypes.shape({}).isRequired,
 };
 
+/**
+ * Add specified items in the global store as props to the component
+ * @param {object} state the global store
+ * @param {object} ownProps the component specific props
+ */
 export const mapStateToProps = state => ({
   error: state.common.error,
   loading: state.common.loading,
 });
 
+/**
+ * Add specified action creators as props to the component
+ * @param {function} dispatch - dispatch the specified action.
+ */
 export const mapDispatchToProps = dispatch => bindActionCreators({
   updateRequest: (requestData, requestId) => (requestActions.updateRequest(requestData, requestId)),
   getRequest: requestId => (requestActions.getSingleRequest(requestId)),
